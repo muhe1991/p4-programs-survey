@@ -1,0 +1,6 @@
+table_add hula_bwd hula_set_nhop 10.0.1.0/24 => 0
+table_add hula_bwd hula_set_nhop 10.0.2.0/24 => 1
+table_add hula_bwd hula_set_nhop 10.0.3.0/24 => 2
+table_add hula_nhop hula_get_nhop 10.0.1.0/24 => 0
+table_add hula_nhop hula_get_nhop 10.0.2.0/24 => 1
+table_add hula_nhop hula_get_nhop 10.0.3.0/24 => 2

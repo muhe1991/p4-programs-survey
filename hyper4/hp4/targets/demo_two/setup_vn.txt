@@ -1,0 +1,2 @@
+table_add t_link a_set_dest_port 2 66 => 69
+table_add t_virt_net a_virt_net 2 69 => 3

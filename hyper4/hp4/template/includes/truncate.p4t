@@ -1,0 +1,20 @@
+[+ std_header +]
+[+ this_header +]
+
+action a_truncate(val) {
+  truncate(val);
+}
+
+[+ dloop +]
+table t_truncate_[+X+][+Y+] {
+  actions {
+    a_truncate;
+  }
+}
+[+ enddloop +]
+
+[+ dloop +]
+control do_truncate_[+X+][+Y+] {
+  apply(t_truncate_[+X+][+Y+]);
+}
+[+ enddloop +]

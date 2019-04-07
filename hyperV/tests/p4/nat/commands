@@ -1,0 +1,8 @@
+table_add nat nat_output 0x0a000002&&&0xFFFFFF00 0&&&0 => 0x0a000001 0xFFFFFF00 1
+table_add nat nat_input 0&&&0 0x0a000002&0xFFFFFF00 => 0x0a000000 0xFFFFFF00 1
+table_add forward set_dmac 0x0a000002 => 0x082200010011 1
+table_add forward set_dmac 0x0a000103 => 0x082200010002 2
+table_add send_frame set_smac 0x0a000102 => 0x082200010001
+table_add send_frame set_smac 0x0a000103 => 0x082200010012
+table_set_default forward _drop
+table_set_default send_frame _drop

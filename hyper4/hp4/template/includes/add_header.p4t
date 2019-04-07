@@ -1,0 +1,27 @@
+[+ std_header +]
+[+ this_header +]
+
+action a_addh(sz, offset, msk, vbits) {
+  modify_field(extracted.data, (extracted.data & ~msk) | (extracted.data >> (sz * 8)) & (msk >> (offset * 8)));
+  modify_field(parse_ctrl.numbytes, parse_ctrl.numbytes + sz);
+  modify_field(extracted.validbits, extracted.validbits | vbits);
+}
+
+[+ dloop +]
+table t_addh_[+X+][+Y+] {
+  reads {
+    meta_ctrl.program : exact;
+    meta_primitive_state.action_ID : exact;
+    meta_primitive_state.primitive_index : exact;
+  }
+  actions {
+    a_addh;
+  }
+}
+[+ enddloop +]
+
+[+ dloop +]
+control do_add_header_[+X+][+Y+] {
+  apply(t_addh_[+X+][+Y+]);
+}
+[+ enddloop +]

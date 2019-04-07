@@ -1,0 +1,90 @@
+mirroring_add 1 1
+mirroring_add 2 2
+mirroring_add 3 3
+table_add t_prog_select set_program 1 => 1 0
+table_add t_prog_select set_program 2 => 1 0
+table_add parse_control set_next_action 1 0 0 => 1
+table_add parse_control set_next_action 1 42 1 => 0
+table_add t_inspect_SEB extract_more 1 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0x08&&&0xFF 0x06&&&0xFF 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 => 42 1 1
+table_set_default t_inspect_SEB set_next_action 0
+table_set_default t_norm_SEB a_norm_SEB
+table_set_default t_norm_20_39 a_norm_20_39
+table_set_default t_norm_40_59 a_norm_40_59
+table_add t_set_first_table a_set_first_table 1 1 => 3
+table_add t_set_first_table a_set_first_table 1 0 => 3
+table_add t_set_validbits a_set_validbits 1 1 => 0xC0000000000000000000
+table_add t_set_validbits a_set_validbits 1 0 => 0x80000000000000000000
+table_add t1_stdmeta_exact set_meta_stdmeta 1 => 1
+table_add t1_stdmeta_ingress_port init_program_state 1 1 => 1 1 4
+table_add t1_stdmeta_ingress_port init_program_state 1 2 => 1 2 4
+table_add set_primitive_metadata_11 a_set_primitive_metadata 1 1 1 => 0 8
+table_add t_mod_11 mod_meta_const 1 8 1 => 2 32 0xFF00000000
+table_add t_mod_11 mod_meta_const 1 8 2 => 1 32 0xFF00000000
+table_add set_program_state_11 set_program_state 1 1 1 => 0 0 1 2
+table_add t2_extracted_valid init_program_state 1 0xC0000000000000000000&&&0xC0000000000000000000 => 2 1 1 1
+table_add t2_extracted_valid init_program_state 1 0x80000000000000000000&&&0xC0000000000000000000 => 5 2 0 1
+table_add set_primitive_metadata_21 a_set_primitive_metadata 1 2 1 => 7 0
+table_add set_primitive_metadata_21 a_set_primitive_metadata 1 5 1 => 0 7
+table_add t_mod_21 mod_stdmeta_egressspec_meta 1 7 2 => 32 0xFF
+table_add set_program_state_21 set_program_state 1 2 1 => 0 0 1 3
+table_add set_program_state_21 set_program_state 1 5 1 => 0 0 1 0
+table_add t3_extracted_exact init_program_state 1 0x0001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 3 1 1 1
+table_add t3_extracted_exact init_program_state 1 0x00&&&0x00 => 5 2 0 2
+table_add set_primitive_metadata_31 a_set_primitive_metadata 1 3 1 => 7 0
+table_add set_primitive_metadata_31 a_set_primitive_metadata 1 5 1 => 0 7
+table_add t_mod_31 mod_stdmeta_egressspec_meta 1 7 2 => 32 0xFF
+table_add set_program_state_31 set_program_state 1 3 1 => 0 0 1 4
+table_add set_program_state_31 set_program_state 1 5 1 => 0 0 1 0
+table_add t4_extracted_exact init_program_state 1 0x0a00000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 4 1 0 1
+table_add t4_extracted_exact init_program_state 1 0x0a00000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 4 2 0 1
+table_add t4_extracted_exact init_program_state 1 0x00&&&0x00 => 5 3 0 2
+table_add set_primitive_metadata_41 a_set_primitive_metadata 1 4 1 => 0 11
+table_add set_primitive_metadata_41 a_set_primitive_metadata 1 5 1 => 0 7
+table_add set_primitive_metadata_42 a_set_primitive_metadata 1 4 2 => 0 10
+table_add set_primitive_metadata_43 a_set_primitive_metadata 1 4 3 => 0 12
+table_add set_primitive_metadata_44 a_set_primitive_metadata 1 4 4 => 0 10
+table_add set_primitive_metadata_45 a_set_primitive_metadata 1 4 5 => 0 13
+table_add set_primitive_metadata_46 a_set_primitive_metadata 1 4 6 => 0 12
+table_add set_primitive_metadata_47 a_set_primitive_metadata 1 4 7 => 0 14
+table_add set_primitive_metadata_48 a_set_primitive_metadata 1 4 8 => 0 12
+table_add set_primitive_metadata_49 a_set_primitive_metadata 1 4 9 => 0 10
+table_add set_program_state_41 set_program_state 1 4 1 => 4 2 2 0
+table_add set_program_state_41 set_program_state 1 5 1 => 0 0 1 0
+table_add set_program_state_42 set_program_state 1 4 2 => 4 3 2 0
+table_add set_program_state_43 set_program_state 1 4 3 => 4 4 2 0
+table_add set_program_state_44 set_program_state 1 4 4 => 4 5 2 0
+table_add set_program_state_45 set_program_state 1 4 5 => 4 6 2 0
+table_add set_program_state_46 set_program_state 1 4 6 => 4 7 2 0
+table_add set_program_state_47 set_program_state 1 4 7 => 4 8 2 0
+table_add set_program_state_48 set_program_state 1 4 8 => 4 9 2 0
+table_add set_program_state_49 set_program_state 1 4 9 => 0 0 1 0
+table_add t_mod_41 mod_stdmeta_egressspec_stdmeta_ingressport 1 11 1 =>
+table_add t_mod_41 mod_stdmeta_egressspec_stdmeta_ingressport 1 11 2 =>
+table_add t_mod_41 mod_stdmeta_egressspec_meta 1 7 3 => 32 0xFF
+table_add t_mod_42 mod_extracted_const 1 10 1 => 2 624 0xFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_42 mod_extracted_const 1 10 2 => 2 624 0xFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_43 mod_extracted_extracted 1 12 1 => 0 80 0xFFFFFFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_43 mod_extracted_extracted 1 12 2 => 0 80 0xFFFFFFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_44 mod_extracted_const 1 10 1 => 0x000400000001 576 0xFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_44 mod_extracted_const 1 10 2 => 0x000400000000 576 0xFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_45 mod_meta_extracted 1 13 1 => 0 0xFFFFFFFF 544 0xFFFFFFFF
+table_add t_mod_45 mod_meta_extracted 1 13 2 => 0 0xFFFFFFFF 544 0xFFFFFFFF
+table_add t_mod_46 mod_extracted_extracted 1 12 1 => 80 0 0x00000000000000000000000000000000000000000000000000000000FFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_46 mod_extracted_extracted 1 12 2 => 80 0 0x00000000000000000000000000000000000000000000000000000000FFFFFFFF0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_47 mod_extracted_meta 1 14 1 => 0xFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 0 0xFFFFFFFF 464
+table_add t_mod_47 mod_extracted_meta 1 14 2 => 0xFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 0 0xFFFFFFFF 464
+table_add t_mod_48 mod_extracted_extracted 1 12 1 => 48 0 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_48 mod_extracted_extracted 1 12 2 => 48 0 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_49 mod_extracted_const 1 10 1 => 0x000400000001 704 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_49 mod_extracted_const 1 10 2 => 0x000400000000 704 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_multicast _no_op 1 0 0 0&&&0 =>
+table_add csum16 _no_op 1 =>
+table_add t_resize_pr a_resize_pr_42 42 =>
+table_add t_resize_pr _no_op 0 =>
+table_set_default t_prep_deparse_SEB a_prep_deparse_SEB
+table_set_default t_prep_deparse_20_39 a_prep_deparse_20_39
+table_set_default t_prep_deparse_40_59 a_prep_deparse_40_59
+table_add t_link _no_op 1 1 =>
+table_add t_link _no_op 1 2 =>
+table_add t_link _no_op 1 3 =>
+table_add t_virt_net _no_op 1 0 =>

@@ -1,0 +1,28 @@
+{
+    "modify_and_resubmit" :
+    {
+	"num_args" : 1,
+	"args" : ["field_list"],
+	"properties" : {
+	    "field_list" : {
+		"type" : "field_list",
+		"access" : "read",
+		"optional" : true
+	    }
+	}
+    },
+    "rohc_decomp_header" :
+    {
+	"num_args" : 0,
+	"args" : [],
+	"properties" : {
+	}
+    },
+		"rohc_comp_header" :
+    {
+	"num_args" : 0,
+	"args" : [],
+	"properties" : {
+	}
+}
+}

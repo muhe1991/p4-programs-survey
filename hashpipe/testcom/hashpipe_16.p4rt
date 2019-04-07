@@ -1,0 +1,20 @@
+/
+#ïàƒtbl_do_stage1tbl_do_stage1¨Ş@€/
+#ü×€tbl_do_stage2tbl_do_stage2Æ¤@€5
+)µõƒtbl_drop_expiredtbl_drop_expired€ƒ€@€]
+¡×ipv4_lpmipv4_lpmhdr.ipv4.dstAddr  (¬‘‚¸¶€·¶@defaultonly()@€\
+„‚forwardforwardhh_meta.nhop_ipv4  (˜€¸¶€·¶@defaultonly()@€n
+ÊÁ€
+send_frame
+send_frame%standard_metadata.egress_port 	(Ø—‚¸¶€·¶@defaultonly()@€
+·¶NoActionNoAction
+¨Ş	do_stage1	do_stage1
+Æ¤	do_stage2	do_stage2
+¸¶€_drop_drop)
+'€ƒ€do_drop_expireddo_drop_expired8
+¬‘‚set_nhopset_nhop	nhop_ipv4  
+port 	'
+˜€set_dmacset_dmac
+dmac 0-
+Ø—‚rewrite_macrewrite_mac
+smac 0

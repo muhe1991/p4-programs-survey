@@ -1,0 +1,38 @@
+[+ std_header +]
+[+ this_header +]
+
+#include "modify_field.p4"
+#include "add_header.p4"
+#include "copy_header.p4"
+#include "remove_header.p4"
+#include "push.p4"
+#include "pop.p4"
+#include "drop.p4"
+#include "multicast.p4"
+#include "math_on_field.p4"
+#include "truncate.p4"
+
+[+ dloop +]
+control switch_primitivetype_[+X+][+Y+] {
+  if(meta_primitive_state.primitive == A_MODIFY_FIELD) {
+    do_modify_field_[+X+][+Y+]();
+  }
+  else if(meta_primitive_state.primitive == A_ADD_HEADER) {
+    do_add_header_[+X+][+Y+]();
+  }
+  else if(meta_primitive_state.primitive == A_TRUNCATE) {
+    do_truncate_[+X+][+Y+]();
+  }
+  else if(meta_primitive_state.primitive == A_DROP) {
+    do_drop_[+X+][+Y+]();
+  }
+  else if(meta_primitive_state.primitive == A_NO_OP) {
+  }
+  else if(meta_primitive_state.primitive == A_MULTICAST) {
+    do_multicast_[+X+][+Y+]();
+  }
+  else if(meta_primitive_state.primitive == A_MATH_ON_FIELD) {
+    do_math_on_field_[+X+][+Y+]();
+  }
+}
+[+ enddloop +]

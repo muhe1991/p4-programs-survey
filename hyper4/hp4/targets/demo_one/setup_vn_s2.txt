@@ -1,0 +1,5 @@
+table_add t_link a_set_dest_port 3 66 => 69
+table_add t_link a_set_dest_port 4 70 => 73
+table_add t_virt_net a_virt_net 3 69 => 4
+table_add t_virt_net a_virt_net 4 73 => 5
+table_set_default t_virt_filter a_virt_ports_cleanup

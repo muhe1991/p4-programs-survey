@@ -1,0 +1,3 @@
+table_modify t_prog_select set_program 0 1 0
+table_modify t_prog_select set_program 1 1 0
+table_modify t_prog_select set_program 2 1 0

@@ -1,0 +1,109 @@
+{
+    "registers": {
+        "configs": [
+            {
+                "count": 0, 
+                "index": 0, 
+                "register": "acceptor_id", 
+                "name": "acceptor_id", 
+                "value": "1"
+            }
+        ]
+    }, 
+    "tables": {
+        "drop_tbl": {
+            "default_rule": {
+                "action": {
+                    "type": "_drop"
+                }, 
+                "name": "Drop"
+            }
+        }, 
+        "fwd_tbl": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "forward", 
+                        "data": {
+                            "port": {
+                                "value": "p0"
+                            }
+                        }
+                    }, 
+                    "name": "host2net", 
+                    "match": {
+                        "standard_metadata.ingress_port": {
+                            "value": "v0.0"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "forward", 
+                        "data": {
+                            "port": {
+                                "value": "v0.0"
+                            }
+                        }
+                    }, 
+                    "name": "net2host", 
+                    "match": {
+                        "standard_metadata.ingress_port": {
+                            "value": "p0"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "type": "_drop"
+                }, 
+                "name": "Default"
+            }
+        }, 
+        "paxos_tbl": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "handle_phase1a"
+                    }, 
+                    "name": "prepare", 
+                    "match": {
+                        "paxos.msgtype": {
+                            "value": "1"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "handle_phase2a"
+                    }, 
+                    "name": "accept", 
+                    "match": {
+                        "paxos.msgtype": {
+                            "value": "3"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "type": "_no_op"
+                }, 
+                "name": "Default"
+            }
+        }, 
+        "round_tbl": {
+            "default_rule": {
+                "action": {
+                    "type": "read_round"
+                }, 
+                "name": "read_req"
+            }
+        }
+    }, 
+    "multicast": {}, 
+    "meters": {
+        "configs": []
+    }
+}

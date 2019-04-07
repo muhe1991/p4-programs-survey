@@ -1,0 +1,26 @@
+[+ std_header +]
+[+ this_header +]
+
+action a_multicast(seq_id, highport) {
+  modify_field(meta_ctrl.multicast_seq_id, seq_id);
+  modify_field(meta_ctrl.multicast_current_egress, highport);
+  modify_field(meta_ctrl.mc_flag, 1);
+  modify_field(standard_metadata.egress_spec, highport);
+}
+
+[+ dloop +]
+table t_multicast_[+X+][+Y+] {
+  reads {
+    meta_ctrl.program : exact;
+  }
+  actions {
+    a_multicast;
+  }
+}
+[+ enddloop +]
+
+[+ dloop +]
+control do_multicast_[+X+][+Y+] {
+  apply(t_multicast_[+X+][+Y+]);
+}
+[+ enddloop +]

@@ -1,0 +1,95 @@
+Algorithm for inserting A bytes between segments of size X and Y:
+1. Copy X bytes to temp storage
+2. Pop X bytes from ext
+3. Push A bytes into ext
+4. Write A values starting from ext[0] through ext[A-1]
+5. Push X bytes into ext
+6. Write X values starting from ext[0] through ext[X-1]
+
+DETAILS
+
+UPDATE: For the steps below involving push and pop primitives, I have rediscovered
+that despite what spec 1.04 says, these primitives will not likely ever accept
+anything but constants as the second parameter (which indicates how many elements
+to push or pop).  So the final solution is a little more complicated because I
+have to hard code an action for every constant we might want to pass to the
+push and pop primitives.  I still think there are net code size savings taking
+this approach vs. auto-generating an action for every starting position and
+number of elements to insert.
+
+Step 1: Copy X bytes to temp storage
+
+Maybe easiest thing is to copy entire ext header stack to ext_cpy header stack:
+  copy_header(ext_cpy[0], ext[0]);
+  ...
+  copy_header(ext_cpy[99], ext[99]);
+
+Copying invalid elements of ext will make the corresponding elements of ext_cpy
+invalid, which is probably useful behavior.
+
+Except this scheme by itself doesn't work because the Y segment is also copied
+and corresponding ext_cpy elements made valid.  So we could then: push (100 - X)
+bytes to shove the Y elements off the edge, and then pop (100 - X) elements
+to put the X elements back to the start of the ext_cpy header stack.  At this
+point, all of the elements from ext_cpy[X] to ext_cpy[99] should be invalid.
+
+Aside that might be helpful, might not: programming trick occurred to me that
+could help us make use of the 'last' keyword for header stack indexing:
+- maintain another header stack with the same number of elements as ext,
+  call it aux
+- do copy_header(aux[n], ext[n]); for n = 0 to 99
+- do modify_field(aux[n].data, n); for n = 0 to 99
+  - this primitive has no effect for dest fields that are invalid
+- inspect aux[last].data to determine the index of the last valid
+  element of ext
+
+Step 2: Pop X bytes from ext
+
+Straightforward, since pop can accept a VAL as a second parameter indicating
+how many elements to pop.  Should test to make sure the VAL can be an action
+parameter (it should, according to Table 5 of the spec, but bmv2 has been
+known not to implement the spec completely).
+
+Step 3: Push A bytes into ext
+
+Straightforward, since push can accept a VAL, etc., see Step 2.
+
+Step 4: Write A values starting from ext[0] through ext[A-1]
+
+I envision this will happen one byte at a time.  We can hardcode actions
+that write to specific locations in ext, from 0 to n, but n does not have
+to be very big, because say n = 10, and the user wants to insert more than
+10 bytes.  In this case, the user does step 3 with max n = 10, then step
+4 10 times, then repeats step 3 with n = whatever necessary, and complete
+step 4 as many times as necessary.
+
+Alternatively, it might make more sense to combine steps 3 and steps 4
+but like for one byte at a time.
+
+Step 5: Push X bytes into ext
+
+Straightforward
+
+Step 6: Write X values starting from ext[0] through ext[X-1]
+
+This is pretty easy because of modify_field semantics, that it
+takes no effect if either the source OR the dest (or both) is
+a field whose parent is an invalid header stack element.  So
+just do modify_field(ext[n].data, ext_cpy[n].data) for n = 0
+to 99.  And then pop X values from ext_cpy to leave the thing
+empty.
+
+Bear in mind that to implement add_header, we don't have to worry
+about step 4, because add_header by itself just adds empty elements.
+
+Now here's the rub: throughout the ingress pipeline, HP4 relies on
+the consolidated 800-bit field extracted.data to work with.  The
+add_header operation therefore needs to mess with *that* thing.
+The simplest solution is to add a pre- and post- step: pre involves
+writing back extracted.data to the ext header stack (we've already
+implemented an action for this that preps for deparsing), and
+post involves writing back the contents of ext to extracted.data
+(we've already implemented an action for this in the setup phase).
+
+So there's no obstacle here, but we must acknowledge this operation
+incurs a fair bit of overhead.

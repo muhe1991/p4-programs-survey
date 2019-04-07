@@ -1,0 +1,3 @@
+java LossyFlowIdentifierIncDs ../Analysis/Caida/Caida750Thpackets.csv ../Analysis/Caida/Caida750ThSizeBySrcIp.csv runTrial Multi >> ../Analysis/Caida/CaidaSplit1MultiLookUpSummaryIncDs.csv
+java LossyFlowIdentifierIncDs ../Analysis/Caida/Caida750Thpackets.csv ../Analysis/Caida/Caida750ThSizeBySrcIp.csv runTrial Single >> ../Analysis/Caida/CaidaSplit1SingleLookUpSummaryIncDs.csv
+java LossyFlowIdentifierIncDs ../Analysis/Caida/Caida750Thpackets.csv ../Analysis/Caida/Caida750ThSizeBySrcIp.csv runTrial Basic >> ../Analysis/Caida/CaidaSplit1BaselineSummaryIncDs.csv

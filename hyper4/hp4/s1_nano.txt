@@ -1,0 +1,998 @@
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 10796515937670096080, id: 303, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 16887768737444599566, id: 304, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 2938619629697528836, id: 305, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 12085228910974255903, id: 306, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 12628640531910670385, id: 307, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 1939454282100715350, id: 308, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 13982262418854561584, id: 309, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 15531278940151670002, id: 310, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 6823033702558522057, id: 311, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 3612270423793498543, id: 312, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 9176222908631866518, id: 313, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 14147203533503380828, id: 314, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 16862261234895892605, id: 315, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 13479690732490323965, id: 316, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 17892622217853128141, id: 317, copy_id: 0, port_out: 3
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 6322465856433569673, id: 318, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 2721193845694407693, id: 319, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 9629545998903826853, id: 320, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 3392766377579806230, id: 321, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 16786530964054702870, id: 329, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 8159362338983542417, id: 330, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 8577488822024479442, id: 331, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 13930950437234864399, id: 332, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 1479737382815854312, id: 322, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 13828328862050505780, id: 323, copy_id: 0, port_out: 3
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 671092938778768245, id: 324, copy_id: 0, port_out: 3
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 17481336577275761452, id: 325, copy_id: 0, port_out: 3
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 7124582837082075290, id: 326, copy_id: 0, port_out: 3
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 10627920129431007980, id: 327, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 3195453687624372283, id: 328, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16786530964054702870, id: 329, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16786530964054702870, id: 329, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16786530964054702870, id: 329, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13930950437234864399, id: 332, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13930950437234864399, id: 332, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 13930950437234864399, id: 332, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 6211658470945543033, id: 333, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 13263180291917796517, id: 334, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 14723948919470643526, id: 335, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 9148881413643165125, id: 336, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 16618918179396303921, id: 337, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 9576188937651090645, id: 338, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 7407666932735113787, id: 339, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 5479278369343652861, id: 340, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 9408224037899400634, id: 341, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 14591953176347309608, id: 342, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 2240956934655859355, id: 343, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 13986221853403249832, id: 344, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 12810467499269909907, id: 345, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 9483443455319999974, id: 346, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 7989621109556715753, id: 347, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 6065649121304080245, id: 348, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 10311148366131395869, id: 349, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 7793415905401167155, id: 350, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, port_in: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, port_in: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, port_in: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, port_in: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 12945291742567411511, id: 351, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 14017199291624975108, id: 352, copy_id: 0, port_out: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 3324881894044582858, id: 353, copy_id: 0, port_out: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 13553551699699020589, id: 354, copy_id: 0, port_out: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 7394387559046321631, id: 355, copy_id: 0, port_out: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 17531514014936726152, id: 356, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 12922291709540457629, id: 357, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 11827289446075135269, id: 358, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 3662501863190587811, id: 359, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 9055041086843449621, id: 360, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 133024440967702744, id: 361, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 14992287980427690260, id: 362, copy_id: 0, port_out: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 5506693651961791024, id: 363, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 14251338446198770638, id: 364, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 10249183170912529338, id: 365, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 6016748704288458789, id: 366, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 13982596894522858386, id: 367, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 2288365708332694822, id: 368, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 1305103693948999435, id: 369, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 18090167506838149752, id: 370, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 2162891772336009451, id: 371, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 9731634191202742402, id: 372, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 536838129375384451, id: 373, copy_id: 0, port_out: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 982923016394262995, id: 374, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 5939421598555861131, id: 375, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 15593958014011711772, id: 376, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, port_in: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 872330229466313550, id: 377, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 16731296808888786418, id: 378, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 15207171597125249544, id: 379, copy_id: 0, port_out: 3
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 11180352642230370154, id: 380, copy_id: 0, port_out: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, port_in: 1
+type: PACKET_IN, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, port_in: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 5
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 4
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 3453552252043221363, id: 381, copy_id: 0, port_out: 3
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 5 (t_prog_select), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 6 (parse_control), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 16 (t_set_first_table), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 36 (t1_extracted_exact), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 52 (set_primitive_metadata_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 88 (t_mod_11), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 304 (set_program_state_11), entry_hdl: 2
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 53 (set_primitive_metadata_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 305 (set_program_state_12), entry_hdl: 0
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 342 (csum16), entry_hdl: 1
+type: TABLE_HIT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, table_id: 343 (t_resize_pr), entry_hdl: 0
+type: PACKET_OUT, switch_id: 0, cxt_id : 0, sig: 11844747901208486252, id: 382, copy_id: 0, port_out: 1

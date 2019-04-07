@@ -1,0 +1,4 @@
+multicast.p4: Provide multicast support.  The method is less efficient than
+              a switch-specific mechanism, but it is portable.  The code
+              here sets up multicasting, while hp4.p4 is where it is carried
+              out.

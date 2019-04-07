@@ -1,0 +1,30 @@
+HyPer4 TABLE OPERATIONS REQUIRED TO RUN TARGET PROGRAM
+
+SDA: Set Default Action
+AE:  Add Entry
+
+t_packet_init:
+ SDA a_packet_init : <256 | 512 | 768> // parse_width
+
+t_set_first_table:
+ SDA set_first_table : <table ID> // see defines.p4 - meta_ctrl.next_table
+
+if table_ID == EXTRACTED_EXACT:
+  t<#>_extracted_exact:
+    AE <match> <bitmask> set_program_state <action_ID> <primitive index> 1 // last param = priority
+
+else if table_ID == METADATA_EXACT:
+  meta_setup_<#>:
+    SDA a_meta_setup <width, 8|16> <num> <start>
+  meta_set<bytes|words>_<#>:
+    AE <match> a_meta_setbytes_<#>
+  t<#>_metadata_exact:
+    AE <match field00> <match field01> ... <match field07> set_program_state <action_ID> <primitive index>
+
+else if table_ID == STDMETA_EXACT:
+  t<#>_stdmeta_exact:
+    SDA set_stdmeta_match <stdmeta_ID> // see defines.p4 - stdmeta_match.stdmeta_ID
+  t<#>_stdmeta_<std metadata field>_<#>:
+    AE <match> set_program_state <action_ID> <primitive index>
+
+

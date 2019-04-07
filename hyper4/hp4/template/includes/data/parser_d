@@ -1,0 +1,2 @@
+parser.p4: Define various parse functions allowing us to extract a specified
+           number of bits from the received packet.

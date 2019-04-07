@@ -1,0 +1,3027 @@
+{
+  "program" : "./netchain_16.p4i",
+  "__meta__" : {
+    "version" : [2, 7],
+    "compiler" : "https://github.com/p4lang/p4c"
+  },
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp_0", 32, false],
+        ["tmp_1", 32, false],
+        ["tmp_2", 32, false],
+        ["tmp_3", 32, false],
+        ["tmp_4", 32, false],
+        ["tmp_5", 32, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 1,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 2,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "nc_hdr_t",
+      "id" : 3,
+      "fields" : [
+        ["op", 8, false],
+        ["sc", 8, false],
+        ["seq", 16, false],
+        ["key", 128, false],
+        ["value", 128, false],
+        ["vgroup", 16, false]
+      ]
+    },
+    {
+      "name" : "tcp_t",
+      "id" : 4,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["seqNo", 32, false],
+        ["ackNo", 32, false],
+        ["dataOffset", 4, false],
+        ["res", 3, false],
+        ["ecn", 3, false],
+        ["ctrl", 6, false],
+        ["window", 16, false],
+        ["checksum", 16, false],
+        ["urgentPtr", 16, false]
+      ]
+    },
+    {
+      "name" : "udp_t",
+      "id" : 5,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["len", 16, false],
+        ["checksum", 16, false]
+      ]
+    },
+    {
+      "name" : "overlay_t",
+      "id" : 6,
+      "fields" : [
+        ["swip", 32, false]
+      ]
+    },
+    {
+      "name" : "location_t",
+      "id" : 7,
+      "fields" : [
+        ["index", 16, false]
+      ]
+    },
+    {
+      "name" : "my_md_t",
+      "id" : 8,
+      "fields" : [
+        ["ipaddress", 32, false],
+        ["role", 16, false],
+        ["failed", 16, false]
+      ]
+    },
+    {
+      "name" : "reply_addr_t",
+      "id" : 9,
+      "fields" : [
+        ["ipv4_srcAddr", 32, false],
+        ["ipv4_dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "sequence_md_t",
+      "id" : 10,
+      "fields" : [
+        ["seq", 16, false],
+        ["tmp", 16, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 11,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["clone_spec", 32, false],
+        ["instance_type", 32, false],
+        ["drop", 1, false],
+        ["recirculate_port", 16, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["lf_field_list", 32, false],
+        ["mcast_grp", 16, false],
+        ["resubmit_flag", 1, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["_padding", 4, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "scalars",
+      "id" : 0,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 2,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 3,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "nc_hdr",
+      "id" : 4,
+      "header_type" : "nc_hdr_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "tcp",
+      "id" : 5,
+      "header_type" : "tcp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "udp",
+      "id" : 6,
+      "header_type" : "udp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[0]",
+      "id" : 7,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[1]",
+      "id" : 8,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[2]",
+      "id" : 9,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[3]",
+      "id" : 10,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[4]",
+      "id" : 11,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[5]",
+      "id" : 12,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[6]",
+      "id" : 13,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[7]",
+      "id" : 14,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[8]",
+      "id" : 15,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "overlay[9]",
+      "id" : 16,
+      "header_type" : "overlay_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "location",
+      "id" : 17,
+      "header_type" : "location_t",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "my_md",
+      "id" : 18,
+      "header_type" : "my_md_t",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "reply_to_client_md",
+      "id" : 19,
+      "header_type" : "reply_addr_t",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "sequence_md",
+      "id" : 20,
+      "header_type" : "sequence_md_t",
+      "metadata" : true,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [
+    {
+      "name" : "overlay",
+      "id" : 0,
+      "header_type" : "overlay_t",
+      "size" : 10,
+      "header_ids" : [7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+    }
+  ],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [],
+  "errors" : [
+    ["NoError", 1],
+    ["PacketTooShort", 2],
+    ["NoMatch", 3],
+    ["StackOutOfBounds", 4],
+    ["HeaderTooShort", 5],
+    ["ParserTimeout", 6]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "parse_ethernet",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x06",
+              "mask" : null,
+              "next_state" : "parse_tcp"
+            },
+            {
+              "value" : "0x11",
+              "mask" : null,
+              "next_state" : "parse_udp"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_nc_hdr",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "nc_hdr"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x0a",
+              "mask" : null,
+              "next_state" : null
+            },
+            {
+              "value" : "0x0c",
+              "mask" : null,
+              "next_state" : null
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "op"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_overlay",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "stack",
+                  "value" : "overlay"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x00000000",
+              "mask" : null,
+              "next_state" : "parse_nc_hdr"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_overlay"
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "stack_field",
+              "value" : ["overlay", "swip"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_tcp",
+          "id" : 4,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "tcp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_udp",
+          "id" : 5,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "udp"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x22b8",
+              "mask" : null,
+              "next_state" : "parse_overlay"
+            },
+            {
+              "value" : "0x22b9",
+              "mask" : null,
+              "next_state" : "parse_overlay"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            }
+          ]
+        },
+        {
+          "name" : "start",
+          "id" : 6,
+          "parser_ops" : [],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_ethernet"
+            }
+          ],
+          "transition_key" : []
+        }
+      ]
+    }
+  ],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "netchain_16.p4",
+        "line" : 362,
+        "column" : 8,
+        "source_fragment" : "DeparserImpl"
+      },
+      "order" : ["ethernet", "ipv4", "udp", "overlay[0]", "overlay[1]", "overlay[2]", "overlay[3]", "overlay[4]", "overlay[5]", "overlay[6]", "overlay[7]", "overlay[8]", "overlay[9]", "nc_hdr", "tcp"]
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [],
+  "register_arrays" : [
+    {
+      "name" : "sequence_reg",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "netchain_16.p4",
+        "line" : 172,
+        "column" : 54,
+        "source_fragment" : "sequence_reg"
+      },
+      "size" : 4096,
+      "bitwidth" : 16
+    },
+    {
+      "name" : "value_reg",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "netchain_16.p4",
+        "line" : 173,
+        "column" : 52,
+        "source_fragment" : "value_reg"
+      },
+      "size" : 4096,
+      "bitwidth" : 128
+    }
+  ],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "netchain_16.p4",
+        "line" : 380,
+        "column" : 8,
+        "source_fragment" : "update_checksum(true, { hdr.ipv4.version, hdr.ipv4.ihl, hdr.ipv4.diffserv, hdr.ipv4.totalLen, hdr.ipv4.identification, hdr.ipv4.flags, hdr.ipv4.fragOffset, hdr.ipv4.ttl, hdr.ipv4.protocol, hdr.ipv4.srcAddr, hdr.ipv4.dstAddr }, hdr.ipv4.hdrChecksum, HashAlgorithm.csum16)"
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_0",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "netchain_16.p4",
+        "line" : 381,
+        "column" : 8,
+        "source_fragment" : "update_checksum_with_payload(true, { hdr.ipv4.srcAddr, hdr.ipv4.dstAddr, 8w0, hdr.ipv4.protocol, hdr.udp.len, hdr.udp.srcPort, hdr.udp.dstPort, hdr.udp.len }, hdr.udp.checksum, HashAlgorithm.csum16)"
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        },
+        {
+          "type" : "hexstr",
+          "value" : "0x00",
+          "bitwidth" : 8
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "len"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "srcPort"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "dstPort"]
+        },
+        {
+          "type" : "field",
+          "value" : ["udp", "len"]
+        },
+        {
+          "type" : "payload",
+          "value" : null
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "ethernet_set_mac_act",
+      "id" : 1,
+      "runtime_data" : [
+        {
+          "name" : "smac",
+          "bitwidth" : 48
+        },
+        {
+          "name" : "dmac",
+          "bitwidth" : 48
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 155,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.srcAddr = smac"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 156,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.dstAddr = dmac"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "NoAction",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 4,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 5,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 6,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 7,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 9,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 10,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 11,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 12,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 13,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 14,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "assign_value_act",
+      "id" : 15,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["location", "index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "sequence_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_0"]
+            },
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "seq"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 175,
+            "column" : 8,
+            "source_fragment" : "sequence_reg.write((bit<32>)meta.location.index, (bit<16>)hdr.nc_hdr.seq)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["location", "index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "value_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "value"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 176,
+            "column" : 8,
+            "source_fragment" : "value_reg.write((bit<32>)meta.location.index, (bit<128>)hdr.nc_hdr.value)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "drop_packet_act",
+      "id" : 16,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "drop",
+          "parameters" : [],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 179,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop()"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "drop_packet_act",
+      "id" : 17,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "drop",
+          "parameters" : [],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 179,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop()"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "pop_chain_act",
+      "id" : 18,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "sc"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["nc_hdr", "sc"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 182,
+            "column" : 8,
+            "source_fragment" : "hdr.nc_hdr.sc = hdr.nc_hdr.sc + 8w255"
+          }
+        },
+        {
+          "op" : "pop",
+          "parameters" : [
+            {
+              "type" : "header_stack",
+              "value" : "overlay"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 183,
+            "column" : 8,
+            "source_fragment" : "hdr.overlay.pop_front(1)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "len"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["udp", "len"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xfffc"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 184,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.len = hdr.udp.len + 16w65532"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "totalLen"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "totalLen"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xfffc"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 185,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.totalLen = hdr.ipv4.totalLen + 16w65532"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "pop_chain_act",
+      "id" : 19,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "sc"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["nc_hdr", "sc"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 182,
+            "column" : 8,
+            "source_fragment" : "hdr.nc_hdr.sc = hdr.nc_hdr.sc + 8w255"
+          }
+        },
+        {
+          "op" : "pop",
+          "parameters" : [
+            {
+              "type" : "header_stack",
+              "value" : "overlay"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 183,
+            "column" : 8,
+            "source_fragment" : "hdr.overlay.pop_front(1)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "len"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["udp", "len"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xfffc"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 184,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.len = hdr.udp.len + 16w65532"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "totalLen"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "totalLen"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xfffc"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 185,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.totalLen = hdr.ipv4.totalLen + 16w65532"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "failover_act",
+      "id" : 20,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["overlay[1]", "swip"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 188,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = hdr.overlay[1].swip"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "sc"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["nc_hdr", "sc"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 182,
+            "column" : 8,
+            "source_fragment" : "hdr.nc_hdr.sc = hdr.nc_hdr.sc + 8w255"
+          }
+        },
+        {
+          "op" : "pop",
+          "parameters" : [
+            {
+              "type" : "header_stack",
+              "value" : "overlay"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x1"
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 183,
+            "column" : 8,
+            "source_fragment" : "hdr.overlay.pop_front(1)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "len"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["udp", "len"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xfffc"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 184,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.len = hdr.udp.len + 16w65532"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "totalLen"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "totalLen"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xfffc"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 185,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.totalLen = hdr.ipv4.totalLen + 16w65532"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "gen_reply_act",
+      "id" : 21,
+      "runtime_data" : [
+        {
+          "name" : "message_type",
+          "bitwidth" : 8
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["reply_to_client_md", "ipv4_srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 192,
+            "column" : 8,
+            "source_fragment" : "meta.reply_to_client_md.ipv4_srcAddr = hdr.ipv4.dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["reply_to_client_md", "ipv4_dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 193,
+            "column" : 8,
+            "source_fragment" : "meta.reply_to_client_md.ipv4_dstAddr = hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 192,
+            "column" : 47,
+            "source_fragment" : "hdr.ipv4.dstAddr; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["reply_to_client_md", "ipv4_dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 195,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = meta.reply_to_client_md.ipv4_dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "op"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 196,
+            "column" : 8,
+            "source_fragment" : "hdr.nc_hdr.op = message_type"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x22b9"
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 197,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.dstPort = 16w8889"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "failover_write_reply_act",
+      "id" : 22,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["reply_to_client_md", "ipv4_srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 192,
+            "column" : 8,
+            "source_fragment" : "meta.reply_to_client_md.ipv4_srcAddr = hdr.ipv4.dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["reply_to_client_md", "ipv4_dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 193,
+            "column" : 8,
+            "source_fragment" : "meta.reply_to_client_md.ipv4_dstAddr = hdr.ipv4.srcAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 192,
+            "column" : 47,
+            "source_fragment" : "hdr.ipv4.dstAddr; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["reply_to_client_md", "ipv4_dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 195,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = meta.reply_to_client_md.ipv4_dstAddr"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "op"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x0d"
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 196,
+            "column" : 8,
+            "source_fragment" : "hdr.nc_hdr.op = message_type; ..."
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["udp", "dstPort"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x22b9"
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 197,
+            "column" : 8,
+            "source_fragment" : "hdr.udp.dstPort = 16w8889"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "failure_recovery_act",
+      "id" : 23,
+      "runtime_data" : [
+        {
+          "name" : "nexthop",
+          "bitwidth" : 32
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["overlay[0]", "swip"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 203,
+            "column" : 8,
+            "source_fragment" : "hdr.overlay[0].swip = nexthop"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 204,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = nexthop"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "nop",
+      "id" : 24,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "find_index_act",
+      "id" : 25,
+      "runtime_data" : [
+        {
+          "name" : "index",
+          "bitwidth" : 16
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["location", "index"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 210,
+            "column" : 8,
+            "source_fragment" : "meta.location.index = index"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "get_my_address_act",
+      "id" : 26,
+      "runtime_data" : [
+        {
+          "name" : "sw_ip",
+          "bitwidth" : 32
+        },
+        {
+          "name" : "sw_role",
+          "bitwidth" : 16
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["my_md", "ipaddress"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 213,
+            "column" : 8,
+            "source_fragment" : "meta.my_md.ipaddress = sw_ip"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["my_md", "role"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 214,
+            "column" : 8,
+            "source_fragment" : "meta.my_md.role = sw_role"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "get_next_hop_act",
+      "id" : 27,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            },
+            {
+              "type" : "field",
+              "value" : ["overlay[0]", "swip"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 217,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.dstAddr = hdr.overlay[0].swip"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "get_sequence_act",
+      "id" : 28,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_2"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["location", "index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["sequence_md", "seq"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "sequence_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_2"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 220,
+            "column" : 8,
+            "source_fragment" : "sequence_reg.read(meta.sequence_md.seq, (bit<32>)meta.location.index)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "set_egress",
+      "id" : 29,
+      "runtime_data" : [
+        {
+          "name" : "egress_spec",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 223,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = egress_spec"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "ttl"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 224,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl + 8w255"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "maintain_sequence_act",
+      "id" : 30,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["sequence_md", "seq"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["sequence_md", "seq"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x0001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 227,
+            "column" : 8,
+            "source_fragment" : "meta.sequence_md.seq = meta.sequence_md.seq + 16w1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_3"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["location", "index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "sequence_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_3"]
+            },
+            {
+              "type" : "field",
+              "value" : ["sequence_md", "seq"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 228,
+            "column" : 8,
+            "source_fragment" : "sequence_reg.write((bit<32>)meta.location.index, (bit<16>)meta.sequence_md.seq)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_4"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["location", "index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "seq"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "sequence_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 229,
+            "column" : 8,
+            "source_fragment" : "sequence_reg.read(hdr.nc_hdr.seq, (bit<32>)meta.location.index)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "read_value_act",
+      "id" : 31,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_5"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["location", "index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["nc_hdr", "value"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "value_reg"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_5"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 232,
+            "column" : 8,
+            "source_fragment" : "value_reg.read(hdr.nc_hdr.value, (bit<32>)meta.location.index)"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "netchain_16.p4",
+        "line" : 171,
+        "column" : 8,
+        "source_fragment" : "ingress"
+      },
+      "init_table" : "node_2",
+      "tables" : [
+        {
+          "name" : "get_my_address",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 274,
+            "column" : 35,
+            "source_fragment" : "get_my_address"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "target" : ["nc_hdr", "key"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [26, 7],
+          "actions" : ["get_my_address_act", "NoAction"],
+          "base_default_next" : "node_4",
+          "next_tables" : {
+            "get_my_address_act" : "node_4",
+            "NoAction" : "node_4"
+          },
+          "default_entry" : {
+            "action_id" : 7,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "find_index",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 258,
+            "column" : 31,
+            "source_fragment" : "find_index"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "target" : ["nc_hdr", "key"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [25, 5],
+          "actions" : ["find_index_act", "NoAction"],
+          "base_default_next" : "get_sequence",
+          "next_tables" : {
+            "find_index_act" : "get_sequence",
+            "NoAction" : "get_sequence"
+          },
+          "default_entry" : {
+            "action_id" : 5,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "get_sequence",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 287,
+            "column" : 33,
+            "source_fragment" : "get_sequence"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [28, 9],
+          "actions" : ["get_sequence_act", "NoAction"],
+          "base_default_next" : "node_7",
+          "next_tables" : {
+            "get_sequence_act" : "node_7",
+            "NoAction" : "node_7"
+          },
+          "default_entry" : {
+            "action_id" : 9,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "read_value",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 316,
+            "column" : 31,
+            "source_fragment" : "read_value"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [31, 14],
+          "actions" : ["read_value_act", "NoAction"],
+          "base_default_next" : "node_16",
+          "next_tables" : {
+            "read_value_act" : "node_16",
+            "NoAction" : "node_16"
+          },
+          "default_entry" : {
+            "action_id" : 14,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "maintain_sequence",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 301,
+            "column" : 38,
+            "source_fragment" : "maintain_sequence"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [30, 11],
+          "actions" : ["maintain_sequence_act", "NoAction"],
+          "base_default_next" : "node_12",
+          "next_tables" : {
+            "maintain_sequence_act" : "node_12",
+            "NoAction" : "node_12"
+          },
+          "default_entry" : {
+            "action_id" : 11,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "assign_value",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 234,
+            "column" : 33,
+            "source_fragment" : "assign_value"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [15, 2],
+          "actions" : ["assign_value_act", "NoAction"],
+          "base_default_next" : "pop_chain",
+          "next_tables" : {
+            "assign_value_act" : "pop_chain",
+            "NoAction" : "pop_chain"
+          },
+          "default_entry" : {
+            "action_id" : 2,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "pop_chain",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 306,
+            "column" : 30,
+            "source_fragment" : "pop_chain"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [18, 12],
+          "actions" : ["pop_chain_act", "NoAction"],
+          "base_default_next" : "node_16",
+          "next_tables" : {
+            "pop_chain_act" : "node_16",
+            "NoAction" : "node_16"
+          },
+          "default_entry" : {
+            "action_id" : 12,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "drop_packet",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 239,
+            "column" : 32,
+            "source_fragment" : "drop_packet"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [16, 3],
+          "actions" : ["drop_packet_act", "NoAction"],
+          "base_default_next" : "node_16",
+          "next_tables" : {
+            "drop_packet_act" : "node_16",
+            "NoAction" : "node_16"
+          },
+          "default_entry" : {
+            "action_id" : 3,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "pop_chain_again",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 311,
+            "column" : 36,
+            "source_fragment" : "pop_chain_again"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [19, 13],
+          "actions" : ["pop_chain_act", "NoAction"],
+          "base_default_next" : "gen_reply",
+          "next_tables" : {
+            "pop_chain_act" : "gen_reply",
+            "NoAction" : "gen_reply"
+          },
+          "default_entry" : {
+            "action_id" : 13,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "gen_reply",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 266,
+            "column" : 30,
+            "source_fragment" : "gen_reply"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "target" : ["nc_hdr", "op"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [21, 6],
+          "actions" : ["gen_reply_act", "NoAction"],
+          "base_default_next" : "node_20",
+          "next_tables" : {
+            "gen_reply_act" : "node_20",
+            "NoAction" : "node_20"
+          },
+          "default_entry" : {
+            "action_id" : 6,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "get_next_hop",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 282,
+            "column" : 33,
+            "source_fragment" : "get_next_hop"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [27, 8],
+          "actions" : ["get_next_hop_act", "NoAction"],
+          "base_default_next" : "node_20",
+          "next_tables" : {
+            "get_next_hop_act" : "node_20",
+            "NoAction" : "node_20"
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "failure_recovery",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 244,
+            "column" : 37,
+            "source_fragment" : "failure_recovery"
+          },
+          "key" : [
+            {
+              "match_type" : "ternary",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            },
+            {
+              "match_type" : "ternary",
+              "target" : ["overlay[1]", "swip"],
+              "mask" : null
+            },
+            {
+              "match_type" : "ternary",
+              "target" : ["nc_hdr", "vgroup"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "ternary",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [20, 22, 23, 24, 17, 4],
+          "actions" : ["failover_act", "failover_write_reply_act", "failure_recovery_act", "nop", "drop_packet_act", "NoAction"],
+          "base_default_next" : "node_22",
+          "next_tables" : {
+            "failover_act" : "node_22",
+            "failover_write_reply_act" : "node_22",
+            "failure_recovery_act" : "node_22",
+            "nop" : "node_22",
+            "drop_packet_act" : "node_22",
+            "NoAction" : "node_22"
+          },
+          "default_entry" : {
+            "action_id" : 4,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "ipv4_route",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 292,
+            "column" : 42,
+            "source_fragment" : "ipv4_route"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 8192,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [29, 10],
+          "actions" : ["set_egress", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "set_egress" : null,
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 10,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_2",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 322,
+            "column" : 12,
+            "source_fragment" : "hdr.nc_hdr.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["nc_hdr", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "get_my_address",
+          "false_next" : "node_20"
+        },
+        {
+          "name" : "node_4",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 324,
+            "column" : 16,
+            "source_fragment" : "hdr.ipv4.dstAddr == meta.my_md.ipaddress"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "dstAddr"]
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["my_md", "ipaddress"]
+              }
+            }
+          },
+          "true_next" : "find_index",
+          "false_next" : "node_20"
+        },
+        {
+          "name" : "node_7",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 327,
+            "column" : 20,
+            "source_fragment" : "hdr.nc_hdr.op == 8w10"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["nc_hdr", "op"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0a"
+              }
+            }
+          },
+          "true_next" : "read_value",
+          "false_next" : "node_9"
+        },
+        {
+          "name" : "node_9",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 331,
+            "column" : 24,
+            "source_fragment" : "hdr.nc_hdr.op == 8w12"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["nc_hdr", "op"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0c"
+              }
+            }
+          },
+          "true_next" : "node_10",
+          "false_next" : "node_16"
+        },
+        {
+          "name" : "node_10",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 332,
+            "column" : 28,
+            "source_fragment" : "meta.my_md.role == 16w100"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["my_md", "role"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0064"
+              }
+            }
+          },
+          "true_next" : "maintain_sequence",
+          "false_next" : "node_12"
+        },
+        {
+          "name" : "node_12",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 335,
+            "column" : 28,
+            "source_fragment" : "meta.my_md.role == 16w100 || hdr.nc_hdr.seq > meta.sequence_md.seq"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "or",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["my_md", "role"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x0064"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : ">",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["nc_hdr", "seq"]
+                  },
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["sequence_md", "seq"]
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "assign_value",
+          "false_next" : "drop_packet"
+        },
+        {
+          "name" : "node_16",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 344,
+            "column" : 20,
+            "source_fragment" : "meta.my_md.role == 16w102"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["my_md", "role"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x0066"
+              }
+            }
+          },
+          "true_next" : "pop_chain_again",
+          "false_next" : "get_next_hop"
+        },
+        {
+          "name" : "node_20",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 353,
+            "column" : 12,
+            "source_fragment" : "hdr.nc_hdr.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "d2b",
+              "left" : null,
+              "right" : {
+                "type" : "field",
+                "value" : ["nc_hdr", "$valid$"]
+              }
+            }
+          },
+          "true_next" : "failure_recovery",
+          "false_next" : "node_22"
+        },
+        {
+          "name" : "node_22",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 356,
+            "column" : 12,
+            "source_fragment" : "hdr.tcp.isValid() || hdr.udp.isValid()"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "or",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "d2b",
+                  "left" : null,
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["tcp", "$valid$"]
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "d2b",
+                  "left" : null,
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["udp", "$valid$"]
+                  }
+                }
+              }
+            }
+          },
+          "false_next" : null,
+          "true_next" : "ipv4_route"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "netchain_16.p4",
+        "line" : 153,
+        "column" : 8,
+        "source_fragment" : "egress"
+      },
+      "init_table" : "ethernet_set_mac",
+      "tables" : [
+        {
+          "name" : "ethernet_set_mac",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "netchain_16.p4",
+            "line" : 158,
+            "column" : 37,
+            "source_fragment" : "ethernet_set_mac"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "target" : ["standard_metadata", "egress_port"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [1, 0],
+          "actions" : ["ethernet_set_mac_act", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "ethernet_set_mac_act" : null,
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 0,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : []
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc",
+      "if_cond" : {
+        "type" : "bool",
+        "value" : true
+      }
+    },
+    {
+      "name" : "cksum_0",
+      "id" : 1,
+      "target" : ["udp", "checksum"],
+      "type" : "generic",
+      "calculation" : "calc_0",
+      "if_cond" : {
+        "type" : "bool",
+        "value" : true
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.lf_field_list",
+      ["standard_metadata", "lf_field_list"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.resubmit_flag",
+      ["standard_metadata", "resubmit_flag"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ]
+  ]
+}

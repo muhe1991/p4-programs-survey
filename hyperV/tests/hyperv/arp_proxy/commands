@@ -1,0 +1,17 @@
+table_add table_config_at_initial action_set_initial_config 1 0 0 => 1 0 1
+table_add table_std_meta_match_stage1 action_set_action_id 1 0 1&&&0xFF 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 => 1 0x0000002000000000 4 1 1 1
+table_add table_std_meta_match_stage1 action_set_action_id 1 0 2&&&0xFF 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 => 2 0x0000002000000000 4 1 1 1
+table_add table_mod_std_meta_stage1 action_mod_std_meta 1 => 2 0xFF 2 0xFF 0 0 0 0
+table_add table_mod_std_meta_stage1 action_mod_std_meta 2 => 1 0xFF 1 0xFF 0 0 0 0
+table_add table_header_match_stage2 action_set_action_id 1 1 0x08060000000000000010000000000000000000000000000000000000000&&&0xFFFF000000000000FFFF0000000000000000000000000000000000000000 => 0x1000000000 0 4 2 1 1
+table_add table_header_match_stage2 action_end 1 1 0&&&0 => 0xFF
+table_add table_header_match_stage3 action_set_action_id 1 1 0x0a000001&&&0xFFFFFFFF => 0x1000000000 0x2880000000  0 0 0xFF 1
+table_add table_header_match_stage3 action_set_action_id 1 1 0x0a000002&&&0xFFFFFFFF => 0x2000000000 0x2880000000  0 0 0xFF 1
+table_add table_mod_std_meta_stage3 action_loopback 0x1000000000 =>
+table_add table_mod_std_meta_stage3 action_loopback 0x2000000000 =>
+table_add table_mod_header_with_header_stage3 action_mod_header_with_header_1 0x1000000000  => 0 80 0xFFFFFFFFFFFFFFFFFFFF
+table_add table_mod_header_with_header_stage3 action_mod_header_with_header_1 0x2000000000  => 0 80 0xFFFFFFFFFFFFFFFFFFFF
+table_add table_mod_header_with_const_stage3 action_mod_header_with_const 0x1000000000 => 0x0002082a0001000100000000000000000002082a000100010a00000100000000000000000000 0xFFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFFFFFFFFFFFFFF00000000000000000000
+table_add table_mod_header_with_const_stage3 action_mod_header_with_const 0x2000000000 => 0x0001082a0001000200000000000000000002082a000100020a00000200000000000000000000 0xFFFFFFFFFFFFFFFF0000000000000000FFFFFFFFFFFFFFFFFFFFFFFF00000000000000000000
+table_set_default table_checksum noop
+table_set_default dh_deparse action_dh_deparse

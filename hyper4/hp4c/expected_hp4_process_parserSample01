@@ -1,0 +1,34 @@
+1. parser.p4::start
+   Extracts SEB bytes (20).
+   parse_ctrl.numbytes at this point is 0 and control goes directly to ingress.
+2. hp4.p4::ingress
+   Diverts to setup.p4::setup.
+3. setup.p4::setup
+   meta_ctrl.stage == 0 (INIT) so apply tset_context, set program ID.
+   Next, tset_control.
+4. setup.p4::tset_control
+   Read program ID (#), numbytes (0), state (0).
+   Call set_next_action(INSPECT_SEB).
+5. setup.p4::setup
+   Apply tset_inspect_SEB
+6. setup.p4::tset_inspect_SEB
+   [program ID] 0&&&0xFF 0&&&0xFF 0&&&0 ... 0&&&0:
+     set_next_action(PROCEED, 111)
+   [program ID] 0&&&0xFF 0&&&0 ... 0&&&0:
+     set_next_action(PROCEED, 12)
+   [program ID] 0&&&0 ... 0&&&0:
+     set_next_action(PROCEED, 2)
+7. setup.p4::setup
+   Apply tset_pr_SEB
+8. setup.p4::tset_pr_SEB
+   Call a_pr_import_SEB.
+   SEB(20) bytes copied from ext header stack into extracted.data.
+9. setup.p4::setup
+   Apply tset_pipeline
+10.setup.p4::tset_pipeline
+   [program ID] 111:
+     a_set_pipeline([table ID], 0b111)
+   [program ID] 12:
+     a_set_pipeline([table ID], 0b110)
+   [program ID] 2:
+     a_set_pipeline([table ID]. 0b100)

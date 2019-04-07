@@ -1,0 +1,44 @@
+INSTRUCTIONS FOR P1 -> P1' DEMO
+
+P1 is a simple L2 switch.  P1' is just like P1, except that it also uses an extra
+table that drops traffic matching specified destination MACs.  For this demo,
+the dest MAC for 'h3' is the sole entry in this table.
+
+Conceptually, this demo:
+1) Brings up HyPer4 as a clean slate in a mininet simulation, single switch topology
+   with hosts h1, h2, and h3 connected to it (HyPer4 CLI accessible via port 22222)
+2) Populates HyPer4 with the entries necessary to emulate P1
+3) Populates HyPer4 with the entries necessary to emulate P1'
+4) Completes setup, initializing HyPer4 to 'run'/emulate P1
+5) Shows connectivity between h1<->h2 and h1<->h3
+6) Changes HyPer4 over to P1' (traffic to h3 now blocked)
+7) Shows connectivity to h3 disrupted
+8) Changes HyPer4 back to P1 (P1 has no blocking functionality)
+9) Shows connectivity to h3 restored
+
+Let's begin.  Open two terminals.
+
+In the first terminal:
+cd [path]/hp4-src/hp4
+./run_demo.sh
+
+Now, in the second terminal:
+cd [path]/hp4-src/hp4
+./run_cli.sh 22222 < targets/two_progs_sequential/p1.txt
+./run_cli.sh 22222 < targets/two_progs_sequential/p1prime.txt
+./run_cli.sh 22222 < targets/two_progs_sequential/setup.txt
+
+Back in the first terminal:
+mininet> h1 ping h2 -c 2
+mininet> h1 ping h3
+
+In the second terminal:
+./run_cli.sh 22222 < targets/two_progs_sequential/swap_to_p1prime.txt
+
+In the first terminal, observe that pings between h1 and h3 stop.
+
+In the second terminal:
+./run_cli.sh 22222 < targets/two_progs_sequential/swap_to_p1.txt
+
+In the first terminal, observe pings between h1 and h3 resume.
+[ctrl-c, exit]

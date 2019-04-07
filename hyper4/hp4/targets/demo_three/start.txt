@@ -1,0 +1,23 @@
+mirroring_add 1 1
+mirroring_add 2 2
+mirroring_add 3 3
+mirroring_add 4 4
+table_add mc_skip a_drop 1 =>
+table_set_default mc_skip a_mc_skip
+table_add t_prog_select set_program 1 => 1
+table_add t_prog_select set_program 2 => 4
+table_add t_prog_select set_program 3 => 7
+table_add t_prog_select set_program 4 => 8
+table_set_default t_inspect_SEB set_next_action 0
+table_set_default t_norm_SEB a_norm_SEB
+table_set_default t_norm_20_39 a_norm_20_39
+table_set_default t_norm_40_59 a_norm_40_59
+table_add t_resize_pr _no_op 0 =>
+table_set_default t_prep_deparse_SEB a_prep_deparse_SEB
+table_set_default t_prep_deparse_20_39 a_prep_deparse_20_39
+table_set_default t_prep_deparse_40_59 a_prep_deparse_40_59
+table_set_default t_norm_60_79 a_norm_60_79
+table_set_default t_norm_80_99 a_norm_80_99
+table_set_default t_link _no_op
+table_set_default t_virt_net _no_op
+table_set_default t_virt_filter clear_dest_port

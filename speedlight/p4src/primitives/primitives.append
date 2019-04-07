@@ -1,0 +1,283 @@
+/* Copyright 2018-present University of Pennsylvania
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Stateful speedlight externs.  See relevant p4 files for documentation of 
+ * functionality.
+ **/
+
+class riUpdateSnapshotId
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.former_id").set(reg[i]);
+    // test condition.
+    if (get_field("snapshot_header.snapshot_id") > reg[i]) {
+      reg[i].set(get_field("snapshot_header.snapshot_id"));
+    }
+
+    BMLOG_TRACE_PKT(get_packet(),
+                    "riUpdateSnapshotId '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(riUpdateSnapshotId);
+
+
+class riUpdateSnapshotIdNoRollover
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.former_id").set(reg[i]);
+    // test condition.
+    if ((reg[i] >= get_field("snapshot_metadata.former_last_seen")) &&
+        (get_field("snapshot_header.snapshot_id") > reg[i]) 
+       )
+    {
+      reg[i].set(get_field("snapshot_header.snapshot_id"));
+    }
+
+    BMLOG_TRACE_PKT(get_packet(),
+                    "riUpdateSnapshotIdNoRollover '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(riUpdateSnapshotIdNoRollover);
+
+
+class riUpdateSnapshotIdRollover
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.former_id").set(reg[i]);
+    // test condition.
+    if ((reg[i] < get_field("snapshot_metadata.former_last_seen")) &&
+        (get_field("snapshot_header.snapshot_id") > reg[i]) 
+       )
+    {
+      reg[i].set(get_field("snapshot_header.snapshot_id"));
+    } else {
+      if (reg[i] >= get_field("snapshot_metadata.former_last_seen")) {
+        reg[i].set(get_field("snapshot_header.snapshot_id"));
+      }
+    }
+    
+    BMLOG_TRACE_PKT(get_packet(),
+                    "riUpdateSnapshotIdRollover '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(riUpdateSnapshotIdRollover);
+
+
+class riUpdateLastSeen
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.former_last_seen").set(reg[i]);
+
+    reg[i].set(get_field("snapshot_header.snapshot_id"));
+    
+    BMLOG_TRACE_PKT(get_packet(),
+                    "riUpdateLastSeen '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(riUpdateLastSeen);
+
+
+class riReadAndUpdateNotification
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    auto rVal = reg[i].get<int>();
+    reg[i].set(rVal + 1);
+    
+    BMLOG_TRACE_PKT(get_packet(),
+                    "riReadAndUpdateNotification '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(riReadAndUpdateNotification);
+
+
+class reUpdateLastSeen
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.former_last_seen").set(reg[i]);
+
+    reg[i].set(get_field("snapshot_header.snapshot_id"));
+    
+    BMLOG_TRACE_PKT(get_packet(),
+                    "reUpdateLastSeen '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+REGISTER_PRIMITIVE(reUpdateLastSeen);
+
+
+class reUpdateSnapshotId
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.former_id").set(reg[i]);
+    // test condition.
+    if (get_field("snapshot_header.snapshot_id") > reg[i]) {
+      reg[i].set(get_field("snapshot_header.snapshot_id"));
+    }
+
+    BMLOG_TRACE_PKT(get_packet(),
+                    "reUpdateSnapshotId '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(reUpdateSnapshotId);
+
+
+class reUpdateSnapshotIdNoRollover
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.former_id").set(reg[i]);
+    // test condition.
+    if ((reg[i] >= get_field("snapshot_metadata.former_last_seen")) &&
+        (get_field("snapshot_header.snapshot_id") > reg[i]) 
+       )
+    {
+      reg[i].set(get_field("snapshot_header.snapshot_id"));
+    }
+
+    BMLOG_TRACE_PKT(get_packet(),
+                    "reUpdateSnapshotIdNoRollover '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(reUpdateSnapshotIdNoRollover);
+
+
+class reUpdateSnapshotIdRollover
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.former_id").set(reg[i]);
+    // test condition.
+    if ((reg[i] < get_field("snapshot_metadata.former_last_seen")) &&
+        (get_field("snapshot_header.snapshot_id") > reg[i]) 
+       )
+    {
+      reg[i].set(get_field("snapshot_header.snapshot_id"));
+    } else {
+      if (reg[i] >= get_field("snapshot_metadata.former_last_seen")) {
+        reg[i].set(get_field("snapshot_header.snapshot_id"));
+      }
+    }
+    
+    BMLOG_TRACE_PKT(get_packet(),
+                    "reUpdateSnapshotIdRollover '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(reUpdateSnapshotIdRollover);
+
+
+class riReadAndUpdateCounter
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.current_reading").set(reg[i]);
+
+    auto rVal = reg[i].get<int>();
+    reg[i].set(rVal + 1);
+    
+    BMLOG_TRACE_PKT(get_packet(),
+                    "riReadAndUpdateCounter '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(riReadAndUpdateCounter);
+
+
+class riUpdateInflight
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    auto rVal = reg[i].get<int>();
+    reg[i].set(rVal + 1);
+    
+    // dst.set(reg[i]);
+    BMLOG_TRACE_PKT(get_packet(),
+                    "riUpdateInflight '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(riUpdateInflight);
+
+
+class reReadAndUpdateCounter
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    get_field("snapshot_metadata.current_reading").set(reg[i]);
+
+    auto rVal = reg[i].get<int>();
+    reg[i].set(rVal + 1);
+    
+    BMLOG_TRACE_PKT(get_packet(),
+                    "reReadAndUpdateCounter '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(reReadAndUpdateCounter);
+
+
+class reUpdateInflight
+  : public ActionPrimitive<RegisterArray &, const Data &> {
+  void operator ()(RegisterArray &reg, const Data &idx) {
+    auto i = idx.get_uint();
+
+    auto rVal = reg[i].get<int>();
+    reg[i].set(rVal + 1);
+    
+    BMLOG_TRACE_PKT(get_packet(),
+                    "reUpdateInflight '{}' at index {} read value {}",
+                    reg.get_name(), i, reg[i]);
+  }
+};
+
+REGISTER_PRIMITIVE(reUpdateInflight);

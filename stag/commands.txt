@@ -1,0 +1,3 @@
+table_add get_source_color set_source_color 1 => 0
+table_add forward set_local_dest 10.0.0.2 => 2 1
+table_add color_check drop 1 0 =>

@@ -1,0 +1,5 @@
+stages.p4: Each control function executes a single match-action stage of a
+           target P4 program.
+
+           The set_program_state tables guide execution from one primtive to
+           the next.

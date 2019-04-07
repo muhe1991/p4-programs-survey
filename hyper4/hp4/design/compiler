@@ -1,0 +1,40 @@
+HP4 Tables to use for Program Emulation
+
+hp4:
+- t_multicast
+- prepare_for_deparsing
+
+checksums:
+- csum16
+
+setup:
+- t_norm
+- t_prog_select
+
+stages:
+- set_program_state_XY
+
+match:
+- tX_extracted|metadata|stdmeta_exact
+
+switch_stdmeta:
+- tX_stdmeta_[field]
+
+action:
+- set_primitive_metadata_XY
+
+add_to_field:
+- t_add_to_field_XY
+
+drop:
+- t_drop_XY
+
+modify_field:
+- t_mod_XY
+- t_mod_prep_XY
+
+truncate:
+- t_truncate_XY
+
+multicast:
+- t_multicast_XY

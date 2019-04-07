@@ -1,0 +1,17 @@
+Using HLIR in Python
+
+In Python, do these things:
+
+from p4_hlir.main import HLIR
+h = HLIR("hp4.p4")
+h.build(analyze=False)
+
+The second line should be modified with the correct path for hp4.p4 as
+necessary.
+
+The argument for the build function in the third line is important to shut off
+table dependency analysis, which for HyPer4 could take who knows how long,
+because we have never done it successfully.  Complexity analysis based on
+steadily increasing the number of tables in a test P4 project and measuring the
+amount of time required to do the analysis suggests that for HyPer4 this could
+take many days.

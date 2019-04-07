@@ -1,0 +1,6 @@
+switches 1
+hosts 4
+h1 s1
+h2 s1
+h3 s1
+h4 s1

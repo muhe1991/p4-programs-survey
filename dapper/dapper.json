@@ -1,0 +1,6386 @@
+{
+  "program" : "./dapper.p4i",
+  "__meta__" : {
+    "version" : [2, 7],
+    "compiler" : "https://github.com/p4lang/p4c"
+  },
+  "header_types" : [
+    {
+      "name" : "scalars_0",
+      "id" : 0,
+      "fields" : [
+        ["tmp_0", 8, false],
+        ["tmp", 8, false],
+        ["tmp_1", 32, false],
+        ["tmp_2", 32, false],
+        ["tmp_3", 32, false],
+        ["tmp_4", 32, false],
+        ["tmp_5", 32, false],
+        ["tmp_6", 32, false],
+        ["tmp_7", 32, false],
+        ["tmp_8", 32, false],
+        ["tmp_9", 32, false],
+        ["tmp_10", 32, false],
+        ["tmp_11", 32, false],
+        ["tmp_12", 32, false],
+        ["tmp_13", 32, false],
+        ["tmp_14", 32, false],
+        ["tmp_15", 32, false],
+        ["tmp_16", 32, false],
+        ["tmp_17", 32, false],
+        ["tmp_18", 32, false],
+        ["tmp_19", 32, false],
+        ["tmp_20", 32, false],
+        ["tmp_21", 32, false],
+        ["tmp_22", 32, false],
+        ["tmp_23", 32, false],
+        ["tmp_24", 32, false],
+        ["tmp_25", 32, false],
+        ["tmp_26", 32, false],
+        ["tmp_27", 32, false],
+        ["tmp_28", 32, false],
+        ["tmp_29", 32, false],
+        ["tmp_30", 32, false],
+        ["tmp_31", 32, false],
+        ["tmp_32", 32, false],
+        ["tmp_33", 32, false],
+        ["tmp_34", 32, false],
+        ["tmp_35", 32, false],
+        ["tmp_36", 32, false],
+        ["tmp_37", 32, false],
+        ["tmp_38", 32, false],
+        ["tmp_39", 32, false],
+        ["tmp_40", 32, false],
+        ["tmp_41", 32, false],
+        ["tmp_42", 32, false],
+        ["tmp_43", 32, false],
+        ["tmp_44", 32, false],
+        ["tmp_45", 32, false],
+        ["tmp_46", 32, false],
+        ["tmp_47", 32, false],
+        ["tmp_48", 32, false],
+        ["tmp_49", 32, false],
+        ["tmp_50", 32, false],
+        ["tmp_51", 32, false],
+        ["tmp_52", 32, false],
+        ["tmp_53", 32, false],
+        ["tmp_54", 32, false],
+        ["tmp_55", 32, false],
+        ["tmp_56", 32, false],
+        ["tmp_57", 32, false]
+      ]
+    },
+    {
+      "name" : "ethernet_t",
+      "id" : 1,
+      "fields" : [
+        ["dstAddr", 48, false],
+        ["srcAddr", 48, false],
+        ["etherType", 16, false]
+      ]
+    },
+    {
+      "name" : "ipv4_t",
+      "id" : 2,
+      "fields" : [
+        ["version", 4, false],
+        ["ihl", 4, false],
+        ["diffserv", 8, false],
+        ["totalLen", 16, false],
+        ["identification", 16, false],
+        ["flags", 3, false],
+        ["fragOffset", 13, false],
+        ["ttl", 8, false],
+        ["protocol", 8, false],
+        ["hdrChecksum", 16, false],
+        ["srcAddr", 32, false],
+        ["dstAddr", 32, false]
+      ]
+    },
+    {
+      "name" : "options_end_t",
+      "id" : 3,
+      "fields" : [
+        ["kind", 8, false]
+      ]
+    },
+    {
+      "name" : "options_mss_t",
+      "id" : 4,
+      "fields" : [
+        ["kind", 8, false],
+        ["len", 8, false],
+        ["MSS", 16, false]
+      ]
+    },
+    {
+      "name" : "options_sack_t",
+      "id" : 5,
+      "fields" : [
+        ["kind", 8, false],
+        ["len", 8, false]
+      ]
+    },
+    {
+      "name" : "options_ts_t",
+      "id" : 6,
+      "fields" : [
+        ["kind", 8, false],
+        ["len", 8, false],
+        ["ttee", 64, false]
+      ]
+    },
+    {
+      "name" : "options_wscale_t",
+      "id" : 7,
+      "fields" : [
+        ["kind", 8, false],
+        ["len", 8, false],
+        ["wscale", 8, false]
+      ]
+    },
+    {
+      "name" : "tcp_t",
+      "id" : 8,
+      "fields" : [
+        ["srcPort", 16, false],
+        ["dstPort", 16, false],
+        ["seqNo", 32, false],
+        ["ackNo", 32, false],
+        ["dataOffset", 4, false],
+        ["res", 3, false],
+        ["ecn", 3, false],
+        ["urg", 1, false],
+        ["ack", 1, false],
+        ["push", 1, false],
+        ["rst", 1, false],
+        ["syn", 1, false],
+        ["fin", 1, false],
+        ["window", 16, false],
+        ["checksum", 16, false],
+        ["urgentPtr", 16, false]
+      ]
+    },
+    {
+      "name" : "options_nop_t",
+      "id" : 9,
+      "fields" : [
+        ["kind", 8, false]
+      ]
+    },
+    {
+      "name" : "intrinsic_metadata_t",
+      "id" : 10,
+      "fields" : [
+        ["ingress_global_timestamp", 48, false],
+        ["lf_field_list", 32, false],
+        ["mcast_grp", 16, false],
+        ["egress_rid", 16, false]
+      ]
+    },
+    {
+      "name" : "my_metadata_t",
+      "id" : 11,
+      "fields" : [
+        ["parse_tcp_options_counter", 8, false]
+      ]
+    },
+    {
+      "name" : "routing_metadata_t",
+      "id" : 12,
+      "fields" : [
+        ["nhop_ipv4", 32, false]
+      ]
+    },
+    {
+      "name" : "stats_metadata_t",
+      "id" : 13,
+      "fields" : [
+        ["dummy", 32, false],
+        ["dummy2", 32, false],
+        ["flow_map_index", 2, false],
+        ["senderIP", 32, false],
+        ["seqNo", 32, false],
+        ["ackNo", 32, false],
+        ["sample_rtt_seq", 32, false],
+        ["rtt_samples", 32, false],
+        ["mincwnd", 32, false],
+        ["dupack", 32, false],
+        ["_padding", 6, false]
+      ]
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 14,
+      "fields" : [
+        ["ingress_port", 9, false],
+        ["egress_spec", 9, false],
+        ["egress_port", 9, false],
+        ["clone_spec", 32, false],
+        ["instance_type", 32, false],
+        ["drop", 1, false],
+        ["recirculate_port", 16, false],
+        ["packet_length", 32, false],
+        ["enq_timestamp", 32, false],
+        ["enq_qdepth", 19, false],
+        ["deq_timedelta", 32, false],
+        ["deq_qdepth", 19, false],
+        ["ingress_global_timestamp", 48, false],
+        ["lf_field_list", 32, false],
+        ["mcast_grp", 16, false],
+        ["resubmit_flag", 1, false],
+        ["egress_rid", 16, false],
+        ["checksum_error", 1, false],
+        ["_padding_0", 4, false]
+      ]
+    }
+  ],
+  "headers" : [
+    {
+      "name" : "scalars",
+      "id" : 0,
+      "header_type" : "scalars_0",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "standard_metadata",
+      "id" : 1,
+      "header_type" : "standard_metadata",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ethernet",
+      "id" : 2,
+      "header_type" : "ethernet_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "ipv4",
+      "id" : 3,
+      "header_type" : "ipv4_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "options_end",
+      "id" : 4,
+      "header_type" : "options_end_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "options_mss",
+      "id" : 5,
+      "header_type" : "options_mss_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "options_sack",
+      "id" : 6,
+      "header_type" : "options_sack_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "options_ts",
+      "id" : 7,
+      "header_type" : "options_ts_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "options_wscale",
+      "id" : 8,
+      "header_type" : "options_wscale_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "tcp",
+      "id" : 9,
+      "header_type" : "tcp_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "options_nop[0]",
+      "id" : 10,
+      "header_type" : "options_nop_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "options_nop[1]",
+      "id" : 11,
+      "header_type" : "options_nop_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "options_nop[2]",
+      "id" : 12,
+      "header_type" : "options_nop_t",
+      "metadata" : false,
+      "pi_omit" : true
+    },
+    {
+      "name" : "intrinsic_metadata",
+      "id" : 13,
+      "header_type" : "intrinsic_metadata_t",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "my_metadata",
+      "id" : 14,
+      "header_type" : "my_metadata_t",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "routing_metadata",
+      "id" : 15,
+      "header_type" : "routing_metadata_t",
+      "metadata" : true,
+      "pi_omit" : true
+    },
+    {
+      "name" : "stats_metadata",
+      "id" : 16,
+      "header_type" : "stats_metadata_t",
+      "metadata" : true,
+      "pi_omit" : true
+    }
+  ],
+  "header_stacks" : [
+    {
+      "name" : "options_nop",
+      "id" : 0,
+      "header_type" : "options_nop_t",
+      "size" : 3,
+      "header_ids" : [10, 11, 12]
+    }
+  ],
+  "header_union_types" : [],
+  "header_unions" : [],
+  "header_union_stacks" : [],
+  "field_lists" : [],
+  "errors" : [
+    ["NoError", 1],
+    ["PacketTooShort", 2],
+    ["NoMatch", 3],
+    ["StackOutOfBounds", 4],
+    ["HeaderTooShort", 5],
+    ["ParserTimeout", 6]
+  ],
+  "enums" : [],
+  "parsers" : [
+    {
+      "name" : "parser",
+      "id" : 0,
+      "init_state" : "start",
+      "parse_states" : [
+        {
+          "name" : "parse_end",
+          "id" : 0,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "options_end"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["my_metadata", "parse_tcp_options_counter"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "+",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["my_metadata", "parse_tcp_options_counter"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_tcp_options"
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_ethernet",
+          "id" : 1,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ethernet"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x0800",
+              "mask" : null,
+              "next_state" : "parse_ipv4"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "etherType"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ipv4",
+          "id" : 2,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "ipv4"
+                }
+              ],
+              "op" : "extract"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x06",
+              "mask" : null,
+              "next_state" : "parse_tcp"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "protocol"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_mss",
+          "id" : 3,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "options_mss"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["my_metadata", "parse_tcp_options_counter"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "+",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["my_metadata", "parse_tcp_options_counter"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xfc"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_tcp_options"
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_nop",
+          "id" : 4,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "stack",
+                  "value" : "options_nop"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["my_metadata", "parse_tcp_options_counter"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "+",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["my_metadata", "parse_tcp_options_counter"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_tcp_options"
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_sack",
+          "id" : 5,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "options_sack"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["my_metadata", "parse_tcp_options_counter"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "+",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["my_metadata", "parse_tcp_options_counter"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xfe"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_tcp_options"
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_tcp",
+          "id" : 6,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "tcp"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["my_metadata", "parse_tcp_options_counter"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "+",
+                              "left" : {
+                                "type" : "expression",
+                                "value" : {
+                                  "op" : "&",
+                                  "left" : {
+                                    "type" : "expression",
+                                    "value" : {
+                                      "op" : "<<",
+                                      "left" : {
+                                        "type" : "field",
+                                        "value" : ["tcp", "dataOffset"]
+                                      },
+                                      "right" : {
+                                        "type" : "hexstr",
+                                        "value" : "0x2"
+                                      }
+                                    }
+                                  },
+                                  "right" : {
+                                    "type" : "hexstr",
+                                    "value" : "0x0f"
+                                  }
+                                }
+                              },
+                              "right" : {
+                                "type" : "hexstr",
+                                "value" : "0x0c"
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0x0f"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x01",
+              "mask" : null,
+              "next_state" : "parse_tcp_options"
+            },
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : null
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["tcp", "syn"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_tcp_options",
+          "id" : 7,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp_0"]
+                },
+                {
+                  "type" : "lookahead",
+                  "value" : [0, 8]
+                }
+              ],
+              "op" : "set"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["scalars", "tmp"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["scalars", "tmp_0"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "0x0000",
+              "mask" : "0xff00",
+              "next_state" : null
+            },
+            {
+              "value" : "0x0000",
+              "mask" : "0x00ff",
+              "next_state" : "parse_end"
+            },
+            {
+              "value" : "0x0001",
+              "mask" : "0x00ff",
+              "next_state" : "parse_nop"
+            },
+            {
+              "value" : "0x0002",
+              "mask" : "0x00ff",
+              "next_state" : "parse_mss"
+            },
+            {
+              "value" : "0x0003",
+              "mask" : "0x00ff",
+              "next_state" : "parse_wscale"
+            },
+            {
+              "value" : "0x0004",
+              "mask" : "0x00ff",
+              "next_state" : "parse_sack"
+            },
+            {
+              "value" : "0x0008",
+              "mask" : "0x00ff",
+              "next_state" : "parse_ts"
+            }
+          ],
+          "transition_key" : [
+            {
+              "type" : "field",
+              "value" : ["my_metadata", "parse_tcp_options_counter"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp"]
+            }
+          ]
+        },
+        {
+          "name" : "parse_ts",
+          "id" : 8,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "options_ts"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["my_metadata", "parse_tcp_options_counter"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "+",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["my_metadata", "parse_tcp_options_counter"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xf6"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_tcp_options"
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "parse_wscale",
+          "id" : 9,
+          "parser_ops" : [
+            {
+              "parameters" : [
+                {
+                  "type" : "regular",
+                  "value" : "options_wscale"
+                }
+              ],
+              "op" : "extract"
+            },
+            {
+              "parameters" : [
+                {
+                  "type" : "field",
+                  "value" : ["my_metadata", "parse_tcp_options_counter"]
+                },
+                {
+                  "type" : "expression",
+                  "value" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "&",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "+",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["my_metadata", "parse_tcp_options_counter"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xfd"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  }
+                }
+              ],
+              "op" : "set"
+            }
+          ],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_tcp_options"
+            }
+          ],
+          "transition_key" : []
+        },
+        {
+          "name" : "start",
+          "id" : 10,
+          "parser_ops" : [],
+          "transitions" : [
+            {
+              "value" : "default",
+              "mask" : null,
+              "next_state" : "parse_ethernet"
+            }
+          ],
+          "transition_key" : []
+        }
+      ]
+    }
+  ],
+  "deparsers" : [
+    {
+      "name" : "deparser",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 533,
+        "column" : 8,
+        "source_fragment" : "DeparserImpl"
+      },
+      "order" : ["ethernet", "ipv4", "tcp", "options_end", "options_nop[0]", "options_nop[1]", "options_nop[2]", "options_mss", "options_wscale", "options_sack", "options_ts"]
+    }
+  ],
+  "meter_arrays" : [],
+  "counter_arrays" : [],
+  "register_arrays" : [
+    {
+      "name" : "MSS",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 227,
+        "column" : 42,
+        "source_fragment" : "MSS"
+      },
+      "size" : 4,
+      "bitwidth" : 16
+    },
+    {
+      "name" : "ack_time",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 228,
+        "column" : 47,
+        "source_fragment" : "ack_time"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "app_reaction_time",
+      "id" : 2,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 229,
+        "column" : 56,
+        "source_fragment" : "app_reaction_time"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "check_map",
+      "id" : 3,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 230,
+        "column" : 47,
+        "source_fragment" : "check_map"
+      },
+      "size" : 2,
+      "bitwidth" : 2
+    },
+    {
+      "name" : "dstIP",
+      "id" : 4,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 231,
+        "column" : 44,
+        "source_fragment" : "dstIP"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flight_size",
+      "id" : 5,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 232,
+        "column" : 50,
+        "source_fragment" : "flight_size"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_last_ack_rcvd",
+      "id" : 6,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 233,
+        "column" : 57,
+        "source_fragment" : "flow_last_ack_rcvd"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_last_seq_sent",
+      "id" : 7,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 234,
+        "column" : 57,
+        "source_fragment" : "flow_last_seq_sent"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_pkts_dup",
+      "id" : 8,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 235,
+        "column" : 52,
+        "source_fragment" : "flow_pkts_dup"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_pkts_rcvd",
+      "id" : 9,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 236,
+        "column" : 53,
+        "source_fragment" : "flow_pkts_rcvd"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_pkts_retx",
+      "id" : 10,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 237,
+        "column" : 53,
+        "source_fragment" : "flow_pkts_retx"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_pkts_sent",
+      "id" : 11,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 238,
+        "column" : 53,
+        "source_fragment" : "flow_pkts_sent"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_rtt_sample_seq",
+      "id" : 12,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 239,
+        "column" : 58,
+        "source_fragment" : "flow_rtt_sample_seq"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_rtt_sample_time",
+      "id" : 13,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 240,
+        "column" : 59,
+        "source_fragment" : "flow_rtt_sample_time"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "flow_rwnd",
+      "id" : 14,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 241,
+        "column" : 48,
+        "source_fragment" : "flow_rwnd"
+      },
+      "size" : 4,
+      "bitwidth" : 16
+    },
+    {
+      "name" : "flow_srtt",
+      "id" : 15,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 242,
+        "column" : 48,
+        "source_fragment" : "flow_srtt"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "metaIP",
+      "id" : 16,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 243,
+        "column" : 45,
+        "source_fragment" : "metaIP"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "mincwnd",
+      "id" : 17,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 244,
+        "column" : 46,
+        "source_fragment" : "mincwnd"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "rtt_samples",
+      "id" : 18,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 245,
+        "column" : 50,
+        "source_fragment" : "rtt_samples"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "sendIP",
+      "id" : 19,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 246,
+        "column" : 45,
+        "source_fragment" : "sendIP"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "srcIP",
+      "id" : 20,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 247,
+        "column" : 44,
+        "source_fragment" : "srcIP"
+      },
+      "size" : 4,
+      "bitwidth" : 32
+    },
+    {
+      "name" : "wscale",
+      "id" : 21,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 248,
+        "column" : 44,
+        "source_fragment" : "wscale"
+      },
+      "size" : 4,
+      "bitwidth" : 8
+    }
+  ],
+  "calculations" : [
+    {
+      "name" : "calc",
+      "id" : 0,
+      "algo" : "crc32",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["tcp", "srcPort"]
+        },
+        {
+          "type" : "field",
+          "value" : ["tcp", "dstPort"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_0",
+      "id" : 1,
+      "algo" : "crc32",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["tcp", "dstPort"]
+        },
+        {
+          "type" : "field",
+          "value" : ["tcp", "srcPort"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_1",
+      "id" : 2,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 549,
+        "column" : 8,
+        "source_fragment" : "verify_checksum(true, { hdr.ipv4.version, hdr.ipv4.ihl, hdr.ipv4.diffserv, hdr.ipv4.totalLen, hdr.ipv4.identification, hdr.ipv4.flags, hdr.ipv4.fragOffset, hdr.ipv4.ttl, hdr.ipv4.protocol, hdr.ipv4.srcAddr, hdr.ipv4.dstAddr }, hdr.ipv4.hdrChecksum, HashAlgorithm.csum16)"
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    },
+    {
+      "name" : "calc_2",
+      "id" : 3,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 555,
+        "column" : 8,
+        "source_fragment" : "update_checksum(true, { hdr.ipv4.version, hdr.ipv4.ihl, hdr.ipv4.diffserv, hdr.ipv4.totalLen, hdr.ipv4.identification, hdr.ipv4.flags, hdr.ipv4.fragOffset, hdr.ipv4.ttl, hdr.ipv4.protocol, hdr.ipv4.srcAddr, hdr.ipv4.dstAddr }, hdr.ipv4.hdrChecksum, HashAlgorithm.csum16)"
+      },
+      "algo" : "csum16",
+      "input" : [
+        {
+          "type" : "field",
+          "value" : ["ipv4", "version"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ihl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "diffserv"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "totalLen"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "identification"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "flags"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "fragOffset"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "ttl"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "protocol"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "srcAddr"]
+        },
+        {
+          "type" : "field",
+          "value" : ["ipv4", "dstAddr"]
+        }
+      ]
+    }
+  ],
+  "learn_lists" : [],
+  "actions" : [
+    {
+      "name" : "NoAction",
+      "id" : 0,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "rewrite_mac",
+      "id" : 1,
+      "runtime_data" : [
+        {
+          "name" : "smac",
+          "bitwidth" : 48
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "srcAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 206,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.srcAddr = smac"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "_drop",
+      "id" : 2,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "drop",
+          "parameters" : [],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 209,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop()"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "NoAction",
+      "id" : 3,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 4,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 5,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 6,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 7,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 8,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 9,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 10,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 11,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 12,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 13,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 14,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 15,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 16,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 17,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "NoAction",
+      "id" : 18,
+      "runtime_data" : [],
+      "primitives" : []
+    },
+    {
+      "name" : "save_source_IP",
+      "id" : 19,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "srcIP"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_1"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "srcAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 250,
+            "column" : 8,
+            "source_fragment" : "srcIP.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)hdr.ipv4.srcAddr)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_2"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "dstIP"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_2"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 251,
+            "column" : 8,
+            "source_fragment" : "dstIP.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)hdr.ipv4.dstAddr)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_3"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "metaIP"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_3"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "senderIP"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 252,
+            "column" : 8,
+            "source_fragment" : "metaIP.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.senderIP)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "get_sender_IP",
+      "id" : 20,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_4"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "senderIP"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "sendIP"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_4"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 256,
+            "column" : 8,
+            "source_fragment" : "sendIP.read(meta.stats_metadata.senderIP, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_5"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "seqNo"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_last_seq_sent"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_5"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 257,
+            "column" : 8,
+            "source_fragment" : "flow_last_seq_sent.read(meta.stats_metadata.seqNo, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_6"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "ackNo"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_last_ack_rcvd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_6"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 258,
+            "column" : 8,
+            "source_fragment" : "flow_last_ack_rcvd.read(meta.stats_metadata.ackNo, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_7"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "sample_rtt_seq"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_seq"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_7"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 259,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_seq.read(meta.stats_metadata.sample_rtt_seq, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_8"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "rtt_samples"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "rtt_samples"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_8"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 260,
+            "column" : 8,
+            "source_fragment" : "rtt_samples.read(meta.stats_metadata.rtt_samples, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_9"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "mincwnd"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "mincwnd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_9"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 261,
+            "column" : 8,
+            "source_fragment" : "mincwnd.read(meta.stats_metadata.mincwnd, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_10"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dupack"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_dup"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_10"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 262,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_dup.read(meta.stats_metadata.dupack, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "use_sample_rtt_first",
+      "id" : 21,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_11"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_time"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_11"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 265,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_time.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy2"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["intrinsic_metadata", "ingress_global_timestamp"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 266,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy2 = (bit<32>)meta.intrinsic_metadata.ingress_global_timestamp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy2"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "-",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["intrinsic_metadata", "ingress_global_timestamp"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 267,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy2 = meta.stats_metadata.dummy2 - meta.stats_metadata.dummy"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_12"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_seq"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_12"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 268,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_seq.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_13"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_srtt"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_13"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy2"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 269,
+            "column" : 8,
+            "source_fragment" : "flow_srtt.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy2)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_14"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "rtt_samples"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_14"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000001"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 270,
+            "column" : 8,
+            "source_fragment" : "rtt_samples.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)1)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "update_flow_dupack",
+      "id" : 22,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_15"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_dup"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_15"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 273,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_dup.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 274,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy + 32w1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_16"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_dup"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_16"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 275,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_dup.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "update_flow_rcvd",
+      "id" : 23,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_17"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_rcvd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_17"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 278,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_rcvd.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 279,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy + 32w1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_18"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_rcvd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_18"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 280,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_rcvd.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_19"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_last_ack_rcvd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_19"]
+            },
+            {
+              "type" : "field",
+              "value" : ["tcp", "ackNo"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 281,
+            "column" : 8,
+            "source_fragment" : "flow_last_ack_rcvd.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)hdr.tcp.ackNo)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_20"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_dup"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_20"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 282,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_dup.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_21"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rwnd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_21"]
+            },
+            {
+              "type" : "field",
+              "value" : ["tcp", "window"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 283,
+            "column" : 8,
+            "source_fragment" : "flow_rwnd.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<16>)hdr.tcp.window)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_22"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_23"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["intrinsic_metadata", "ingress_global_timestamp"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "ack_time"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_22"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_23"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 284,
+            "column" : 8,
+            "source_fragment" : "ack_time.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.intrinsic_metadata.ingress_global_timestamp)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "update_flow_retx_3dupack",
+      "id" : 24,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_24"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_retx"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_24"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 288,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_retx.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 289,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy + 32w1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_25"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_retx"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_25"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 290,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_retx.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_26"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_seq"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_26"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 291,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_seq.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_27"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_time"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_27"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 292,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_time.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_28"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "mincwnd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_28"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 293,
+            "column" : 8,
+            "source_fragment" : "mincwnd.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">>",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x1"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 294,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy >> 1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_29"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "mincwnd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_29"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 295,
+            "column" : 8,
+            "source_fragment" : "mincwnd.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "update_flow_retx_timeout",
+      "id" : 25,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_30"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_retx"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_30"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 298,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_retx.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 299,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy + 32w1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_31"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_retx"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_31"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 300,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_retx.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_32"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_seq"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_32"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 301,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_seq.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_33"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_time"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_33"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 302,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_time.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_34"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "mincwnd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_34"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00003908"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 303,
+            "column" : 8,
+            "source_fragment" : "mincwnd.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)14600)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "update_flow_sent",
+      "id" : 26,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_35"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_sent"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_35"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 306,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_sent.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 307,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy + 32w1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_36"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_pkts_sent"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_36"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 308,
+            "column" : 8,
+            "source_fragment" : "flow_pkts_sent.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_37"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_last_seq_sent"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_37"]
+            },
+            {
+              "type" : "field",
+              "value" : ["tcp", "seqNo"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 309,
+            "column" : 8,
+            "source_fragment" : "flow_last_seq_sent.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)hdr.tcp.seqNo)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["intrinsic_metadata", "ingress_global_timestamp"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 310,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = (bit<32>)meta.intrinsic_metadata.ingress_global_timestamp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_38"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy2"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "ack_time"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_38"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 311,
+            "column" : 8,
+            "source_fragment" : "ack_time.read(meta.stats_metadata.dummy2, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "-",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy2"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 312,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy - meta.stats_metadata.dummy2"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_39"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "app_reaction_time"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_39"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 313,
+            "column" : 8,
+            "source_fragment" : "app_reaction_time.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_40"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_last_seq_sent"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_40"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 314,
+            "column" : 8,
+            "source_fragment" : "flow_last_seq_sent.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_41"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy2"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_last_ack_rcvd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_41"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 315,
+            "column" : 8,
+            "source_fragment" : "flow_last_ack_rcvd.read(meta.stats_metadata.dummy2, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "-",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy2"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 316,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy - meta.stats_metadata.dummy2"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_42"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flight_size"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_42"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 317,
+            "column" : 8,
+            "source_fragment" : "flight_size.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "set_dmac",
+      "id" : 27,
+      "runtime_data" : [
+        {
+          "name" : "dmac",
+          "bitwidth" : 48
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ethernet", "dstAddr"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 320,
+            "column" : 8,
+            "source_fragment" : "hdr.ethernet.dstAddr = dmac"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "_drop",
+      "id" : 28,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "drop",
+          "parameters" : [],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 323,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop()"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "_drop",
+      "id" : 29,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "drop",
+          "parameters" : [],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 323,
+            "column" : 8,
+            "source_fragment" : "mark_to_drop()"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "increase_mincwnd",
+      "id" : 30,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_43"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "mincwnd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_43"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 326,
+            "column" : 8,
+            "source_fragment" : "mincwnd.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "record_IP",
+      "id" : 31,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_44"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "sendIP"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_44"]
+            },
+            {
+              "type" : "field",
+              "value" : ["ipv4", "dstAddr"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 329,
+            "column" : 8,
+            "source_fragment" : "sendIP.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)hdr.ipv4.dstAddr)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_45"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "senderIP"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "sendIP"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_45"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 330,
+            "column" : 8,
+            "source_fragment" : "sendIP.read(meta.stats_metadata.senderIP, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_46"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "MSS"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_46"]
+            },
+            {
+              "type" : "field",
+              "value" : ["options_mss", "MSS"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 331,
+            "column" : 8,
+            "source_fragment" : "MSS.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<16>)hdr.options_mss.MSS)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_47"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "wscale"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_47"]
+            },
+            {
+              "type" : "field",
+              "value" : ["options_wscale", "wscale"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 332,
+            "column" : 8,
+            "source_fragment" : "wscale.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<8>)hdr.options_wscale.wscale)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_48"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "mincwnd"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_48"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00003908"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 333,
+            "column" : 8,
+            "source_fragment" : "mincwnd.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)14600)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "set_nhop",
+      "id" : 32,
+      "runtime_data" : [
+        {
+          "name" : "nhop_ipv4",
+          "bitwidth" : 32
+        },
+        {
+          "name" : "port",
+          "bitwidth" : 9
+        }
+      ],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["routing_metadata", "nhop_ipv4"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 0
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 336,
+            "column" : 8,
+            "source_fragment" : "meta.routing_metadata.nhop_ipv4 = nhop_ipv4"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["standard_metadata", "egress_spec"]
+            },
+            {
+              "type" : "runtime_data",
+              "value" : 1
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 337,
+            "column" : 8,
+            "source_fragment" : "standard_metadata.egress_spec = port"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["ipv4", "ttl"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["ipv4", "ttl"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0xff"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 338,
+            "column" : 8,
+            "source_fragment" : "hdr.ipv4.ttl = hdr.ipv4.ttl + 8w255"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "lookup_flow_map",
+      "id" : 33,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "modify_field_with_hash_based_offset",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "flow_map_index"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            },
+            {
+              "type" : "calculation",
+              "value" : "calc"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x02"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 341,
+            "column" : 8,
+            "source_fragment" : "hash(meta.stats_metadata.flow_map_index, HashAlgorithm.crc32, (bit<2>)0, { hdr.ipv4.srcAddr, hdr.ipv4.dstAddr, hdr.ipv4.protocol, hdr.tcp.srcPort, hdr.tcp.dstPort }, (bit<4>)2)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "check_map"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "flow_map_index"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 342,
+            "column" : 8,
+            "source_fragment" : "check_map.write((bit<32>)0, (bit<2>)meta.stats_metadata.flow_map_index)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "lookup_flow_map_reverse",
+      "id" : 34,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "modify_field_with_hash_based_offset",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "flow_map_index"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00"
+            },
+            {
+              "type" : "calculation",
+              "value" : "calc_0"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x02"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 345,
+            "column" : 8,
+            "source_fragment" : "hash(meta.stats_metadata.flow_map_index, HashAlgorithm.crc32, (bit<2>)0, { hdr.ipv4.dstAddr, hdr.ipv4.srcAddr, hdr.ipv4.protocol, hdr.tcp.dstPort, hdr.tcp.srcPort }, (bit<4>)2)"
+          }
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "check_map"
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000001"
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "flow_map_index"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 346,
+            "column" : 8,
+            "source_fragment" : "check_map.write((bit<32>)1, (bit<2>)meta.stats_metadata.flow_map_index)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "use_sample_rtt",
+      "id" : 35,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_49"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_time"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_49"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 349,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_time.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy2"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["intrinsic_metadata", "ingress_global_timestamp"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 350,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy2 = (bit<32>)meta.intrinsic_metadata.ingress_global_timestamp"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy2"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "-",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "field",
+                            "value" : ["intrinsic_metadata", "ingress_global_timestamp"]
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 351,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy2 = meta.stats_metadata.dummy2 - meta.stats_metadata.dummy"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_50"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_seq"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_50"]
+            },
+            {
+              "type" : "hexstr",
+              "value" : "0x00000000"
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 352,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_seq.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)0)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_51"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "flow_srtt"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_51"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 353,
+            "column" : 8,
+            "source_fragment" : "flow_srtt.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "expression",
+                        "value" : {
+                          "op" : "&",
+                          "left" : {
+                            "type" : "expression",
+                            "value" : {
+                              "op" : "*",
+                              "left" : {
+                                "type" : "hexstr",
+                                "value" : "0x00000007"
+                              },
+                              "right" : {
+                                "type" : "field",
+                                "value" : ["stats_metadata", "dummy"]
+                              }
+                            }
+                          },
+                          "right" : {
+                            "type" : "hexstr",
+                            "value" : "0xffffffff"
+                          }
+                        }
+                      },
+                      "right" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy2"]
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 354,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = 32w7 * meta.stats_metadata.dummy + meta.stats_metadata.dummy2"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : ">>",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x3"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 355,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy >> 3"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_52"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_srtt"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_52"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 356,
+            "column" : 8,
+            "source_fragment" : "flow_srtt.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_53"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_read",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "register_array",
+              "value" : "rtt_samples"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_53"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 357,
+            "column" : 8,
+            "source_fragment" : "rtt_samples.read(meta.stats_metadata.dummy, (bit<32>)meta.stats_metadata.flow_map_index)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "expression",
+                    "value" : {
+                      "op" : "+",
+                      "left" : {
+                        "type" : "field",
+                        "value" : ["stats_metadata", "dummy"]
+                      },
+                      "right" : {
+                        "type" : "hexstr",
+                        "value" : "0x00000001"
+                      }
+                    }
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 358,
+            "column" : 8,
+            "source_fragment" : "meta.stats_metadata.dummy = meta.stats_metadata.dummy + 32w1"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_54"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "rtt_samples"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_54"]
+            },
+            {
+              "type" : "field",
+              "value" : ["stats_metadata", "dummy"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 359,
+            "column" : 8,
+            "source_fragment" : "rtt_samples.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.stats_metadata.dummy)"
+          }
+        }
+      ]
+    },
+    {
+      "name" : "sample_new_rtt",
+      "id" : 36,
+      "runtime_data" : [],
+      "primitives" : [
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_55"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_seq"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_55"]
+            },
+            {
+              "type" : "field",
+              "value" : ["tcp", "seqNo"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 362,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_seq.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)hdr.tcp.seqNo)"
+          }
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_56"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "flow_map_index"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "assign",
+          "parameters" : [
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_57"]
+            },
+            {
+              "type" : "expression",
+              "value" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "&",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["intrinsic_metadata", "ingress_global_timestamp"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0xffffffff"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        {
+          "op" : "register_write",
+          "parameters" : [
+            {
+              "type" : "register_array",
+              "value" : "flow_rtt_sample_time"
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_56"]
+            },
+            {
+              "type" : "field",
+              "value" : ["scalars", "tmp_57"]
+            }
+          ],
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 363,
+            "column" : 8,
+            "source_fragment" : "flow_rtt_sample_time.write((bit<32>)meta.stats_metadata.flow_map_index, (bit<32>)meta.intrinsic_metadata.ingress_global_timestamp)"
+          }
+        }
+      ]
+    }
+  ],
+  "pipelines" : [
+    {
+      "name" : "ingress",
+      "id" : 0,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 226,
+        "column" : 8,
+        "source_fragment" : "ingress"
+      },
+      "init_table" : "node_2",
+      "tables" : [
+        {
+          "name" : "lookup",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 435,
+            "column" : 27,
+            "source_fragment" : "lookup"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [33, 15],
+          "actions" : ["lookup_flow_map", "NoAction"],
+          "base_default_next" : "node_6",
+          "next_tables" : {
+            "lookup_flow_map" : "node_6",
+            "NoAction" : "node_6"
+          },
+          "default_entry" : {
+            "action_id" : 15,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "lookup_reverse",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 440,
+            "column" : 35,
+            "source_fragment" : "lookup_reverse"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [34, 16],
+          "actions" : ["lookup_flow_map_reverse", "NoAction"],
+          "base_default_next" : "node_6",
+          "next_tables" : {
+            "lookup_flow_map_reverse" : "node_6",
+            "NoAction" : "node_6"
+          },
+          "default_entry" : {
+            "action_id" : 16,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "init",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 420,
+            "column" : 25,
+            "source_fragment" : "init"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [31, 13],
+          "actions" : ["record_IP", "NoAction"],
+          "base_default_next" : "node_9",
+          "next_tables" : {
+            "record_IP" : "node_9",
+            "NoAction" : "node_9"
+          },
+          "default_entry" : {
+            "action_id" : 13,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "direction",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 370,
+            "column" : 30,
+            "source_fragment" : "direction"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [20, 4],
+          "actions" : ["get_sender_IP", "NoAction"],
+          "base_default_next" : "node_9",
+          "next_tables" : {
+            "get_sender_IP" : "node_9",
+            "NoAction" : "node_9"
+          },
+          "default_entry" : {
+            "action_id" : 4,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "flow_sent",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 400,
+            "column" : 30,
+            "source_fragment" : "flow_sent"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [26, 10],
+          "actions" : ["update_flow_sent", "NoAction"],
+          "base_default_next" : "node_12",
+          "next_tables" : {
+            "update_flow_sent" : "node_12",
+            "NoAction" : "node_12"
+          },
+          "default_entry" : {
+            "action_id" : 10,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "sample_rtt_sent",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 450,
+            "column" : 36,
+            "source_fragment" : "sample_rtt_sent"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [36, 18],
+          "actions" : ["sample_new_rtt", "NoAction"],
+          "base_default_next" : "node_14",
+          "next_tables" : {
+            "sample_new_rtt" : "node_14",
+            "NoAction" : "node_14"
+          },
+          "default_entry" : {
+            "action_id" : 18,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "increase_cwnd",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 415,
+            "column" : 34,
+            "source_fragment" : "increase_cwnd"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [30, 12],
+          "actions" : ["increase_mincwnd", "NoAction"],
+          "base_default_next" : "ipv4_lpm",
+          "next_tables" : {
+            "increase_mincwnd" : "ipv4_lpm",
+            "NoAction" : "ipv4_lpm"
+          },
+          "default_entry" : {
+            "action_id" : 12,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "flow_retx_3dupack",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 390,
+            "column" : 38,
+            "source_fragment" : "flow_retx_3dupack"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [24, 8],
+          "actions" : ["update_flow_retx_3dupack", "NoAction"],
+          "base_default_next" : "ipv4_lpm",
+          "next_tables" : {
+            "update_flow_retx_3dupack" : "ipv4_lpm",
+            "NoAction" : "ipv4_lpm"
+          },
+          "default_entry" : {
+            "action_id" : 8,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "flow_retx_timeout",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 395,
+            "column" : 38,
+            "source_fragment" : "flow_retx_timeout"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [25, 9],
+          "actions" : ["update_flow_retx_timeout", "NoAction"],
+          "base_default_next" : "ipv4_lpm",
+          "next_tables" : {
+            "update_flow_retx_timeout" : "ipv4_lpm",
+            "NoAction" : "ipv4_lpm"
+          },
+          "default_entry" : {
+            "action_id" : 9,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "flow_rcvd",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 385,
+            "column" : 30,
+            "source_fragment" : "flow_rcvd"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [23, 7],
+          "actions" : ["update_flow_rcvd", "NoAction"],
+          "base_default_next" : "node_22",
+          "next_tables" : {
+            "update_flow_rcvd" : "node_22",
+            "NoAction" : "node_22"
+          },
+          "default_entry" : {
+            "action_id" : 7,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "first_rtt_sample",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 375,
+            "column" : 37,
+            "source_fragment" : "first_rtt_sample"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [21, 5],
+          "actions" : ["use_sample_rtt_first", "NoAction"],
+          "base_default_next" : "ipv4_lpm",
+          "next_tables" : {
+            "use_sample_rtt_first" : "ipv4_lpm",
+            "NoAction" : "ipv4_lpm"
+          },
+          "default_entry" : {
+            "action_id" : 5,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "sample_rtt_rcvd",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 445,
+            "column" : 36,
+            "source_fragment" : "sample_rtt_rcvd"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [35, 17],
+          "actions" : ["use_sample_rtt", "NoAction"],
+          "base_default_next" : "ipv4_lpm",
+          "next_tables" : {
+            "use_sample_rtt" : "ipv4_lpm",
+            "NoAction" : "ipv4_lpm"
+          },
+          "default_entry" : {
+            "action_id" : 17,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "flow_dupack",
+          "id" : 12,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 380,
+            "column" : 32,
+            "source_fragment" : "flow_dupack"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [22, 6],
+          "actions" : ["update_flow_dupack", "NoAction"],
+          "base_default_next" : "ipv4_lpm",
+          "next_tables" : {
+            "update_flow_dupack" : "ipv4_lpm",
+            "NoAction" : "ipv4_lpm"
+          },
+          "default_entry" : {
+            "action_id" : 6,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "debug",
+          "id" : 13,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 365,
+            "column" : 26,
+            "source_fragment" : "debug"
+          },
+          "key" : [],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [19, 3],
+          "actions" : ["save_source_IP", "NoAction"],
+          "base_default_next" : "ipv4_lpm",
+          "next_tables" : {
+            "save_source_IP" : "ipv4_lpm",
+            "NoAction" : "ipv4_lpm"
+          },
+          "default_entry" : {
+            "action_id" : 3,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "ipv4_lpm",
+          "id" : 14,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 425,
+            "column" : 29,
+            "source_fragment" : "ipv4_lpm"
+          },
+          "key" : [
+            {
+              "match_type" : "lpm",
+              "target" : ["ipv4", "dstAddr"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "lpm",
+          "type" : "simple",
+          "max_size" : 1024,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [32, 29, 14],
+          "actions" : ["set_nhop", "_drop", "NoAction"],
+          "base_default_next" : "forward",
+          "next_tables" : {
+            "set_nhop" : "forward",
+            "_drop" : "forward",
+            "NoAction" : "forward"
+          },
+          "default_entry" : {
+            "action_id" : 14,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        },
+        {
+          "name" : "forward",
+          "id" : 15,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 405,
+            "column" : 28,
+            "source_fragment" : "forward"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "target" : ["routing_metadata", "nhop_ipv4"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 512,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [27, 28, 11],
+          "actions" : ["set_dmac", "_drop", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "set_dmac" : null,
+            "_drop" : null,
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 11,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : [
+        {
+          "name" : "node_2",
+          "id" : 0,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 474,
+            "column" : 12,
+            "source_fragment" : "hdr.ipv4.protocol == 8w0x6"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "protocol"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x06"
+              }
+            }
+          },
+          "true_next" : "node_3",
+          "false_next" : "ipv4_lpm"
+        },
+        {
+          "name" : "node_3",
+          "id" : 1,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 475,
+            "column" : 16,
+            "source_fragment" : "hdr.ipv4.srcAddr > hdr.ipv4.dstAddr"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "srcAddr"]
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["ipv4", "dstAddr"]
+              }
+            }
+          },
+          "true_next" : "lookup",
+          "false_next" : "lookup_reverse"
+        },
+        {
+          "name" : "node_6",
+          "id" : 2,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 481,
+            "column" : 16,
+            "source_fragment" : "hdr.tcp.syn == 1w1 && hdr.tcp.ack == 1w0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["tcp", "syn"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x01"
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : "==",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["tcp", "ack"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "init",
+          "false_next" : "direction"
+        },
+        {
+          "name" : "node_9",
+          "id" : 3,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 487,
+            "column" : 16,
+            "source_fragment" : "hdr.ipv4.srcAddr == meta.stats_metadata.senderIP"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "srcAddr"]
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "senderIP"]
+              }
+            }
+          },
+          "true_next" : "node_10",
+          "false_next" : "node_19"
+        },
+        {
+          "name" : "node_10",
+          "id" : 4,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 488,
+            "column" : 20,
+            "source_fragment" : "hdr.tcp.seqNo > meta.stats_metadata.seqNo"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "field",
+                "value" : ["tcp", "seqNo"]
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "seqNo"]
+              }
+            }
+          },
+          "true_next" : "flow_sent",
+          "false_next" : "node_16"
+        },
+        {
+          "name" : "node_12",
+          "id" : 5,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 490,
+            "column" : 24,
+            "source_fragment" : "meta.stats_metadata.sample_rtt_seq == 32w0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "sample_rtt_seq"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00000000"
+              }
+            }
+          },
+          "true_next" : "sample_rtt_sent",
+          "false_next" : "node_14"
+        },
+        {
+          "name" : "node_14",
+          "id" : 6,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 493,
+            "column" : 24,
+            "source_fragment" : "meta.stats_metadata.dummy > meta.stats_metadata.mincwnd"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "dummy"]
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "mincwnd"]
+              }
+            }
+          },
+          "true_next" : "increase_cwnd",
+          "false_next" : "ipv4_lpm"
+        },
+        {
+          "name" : "node_16",
+          "id" : 7,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 498,
+            "column" : 24,
+            "source_fragment" : "meta.stats_metadata.dupack == 32w3"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "dupack"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00000003"
+              }
+            }
+          },
+          "true_next" : "flow_retx_3dupack",
+          "false_next" : "flow_retx_timeout"
+        },
+        {
+          "name" : "node_19",
+          "id" : 8,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 507,
+            "column" : 20,
+            "source_fragment" : "hdr.ipv4.dstAddr == meta.stats_metadata.senderIP"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["ipv4", "dstAddr"]
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "senderIP"]
+              }
+            }
+          },
+          "true_next" : "node_20",
+          "false_next" : "debug"
+        },
+        {
+          "name" : "node_20",
+          "id" : 9,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 508,
+            "column" : 24,
+            "source_fragment" : "hdr.tcp.ackNo > meta.stats_metadata.ackNo"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : ">",
+              "left" : {
+                "type" : "field",
+                "value" : ["tcp", "ackNo"]
+              },
+              "right" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "ackNo"]
+              }
+            }
+          },
+          "true_next" : "flow_rcvd",
+          "false_next" : "flow_dupack"
+        },
+        {
+          "name" : "node_22",
+          "id" : 10,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 510,
+            "column" : 28,
+            "source_fragment" : "hdr.tcp.ackNo >= meta.stats_metadata.sample_rtt_seq && meta.stats_metadata.sample_rtt_seq > 32w0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "and",
+              "left" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : ">=",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["tcp", "ackNo"]
+                  },
+                  "right" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "sample_rtt_seq"]
+                  }
+                }
+              },
+              "right" : {
+                "type" : "expression",
+                "value" : {
+                  "op" : ">",
+                  "left" : {
+                    "type" : "field",
+                    "value" : ["stats_metadata", "sample_rtt_seq"]
+                  },
+                  "right" : {
+                    "type" : "hexstr",
+                    "value" : "0x00000000"
+                  }
+                }
+              }
+            }
+          },
+          "true_next" : "node_23",
+          "false_next" : "ipv4_lpm"
+        },
+        {
+          "name" : "node_23",
+          "id" : 11,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 511,
+            "column" : 32,
+            "source_fragment" : "meta.stats_metadata.rtt_samples == 32w0"
+          },
+          "expression" : {
+            "type" : "expression",
+            "value" : {
+              "op" : "==",
+              "left" : {
+                "type" : "field",
+                "value" : ["stats_metadata", "rtt_samples"]
+              },
+              "right" : {
+                "type" : "hexstr",
+                "value" : "0x00000000"
+              }
+            }
+          },
+          "true_next" : "first_rtt_sample",
+          "false_next" : "sample_rtt_rcvd"
+        }
+      ]
+    },
+    {
+      "name" : "egress",
+      "id" : 1,
+      "source_info" : {
+        "filename" : "dapper.p4",
+        "line" : 204,
+        "column" : 8,
+        "source_fragment" : "egress"
+      },
+      "init_table" : "send_frame",
+      "tables" : [
+        {
+          "name" : "send_frame",
+          "id" : 16,
+          "source_info" : {
+            "filename" : "dapper.p4",
+            "line" : 211,
+            "column" : 31,
+            "source_fragment" : "send_frame"
+          },
+          "key" : [
+            {
+              "match_type" : "exact",
+              "target" : ["standard_metadata", "egress_port"],
+              "mask" : null
+            }
+          ],
+          "match_type" : "exact",
+          "type" : "simple",
+          "max_size" : 256,
+          "with_counters" : false,
+          "support_timeout" : false,
+          "direct_meters" : null,
+          "action_ids" : [1, 2, 0],
+          "actions" : ["rewrite_mac", "_drop", "NoAction"],
+          "base_default_next" : null,
+          "next_tables" : {
+            "rewrite_mac" : null,
+            "_drop" : null,
+            "NoAction" : null
+          },
+          "default_entry" : {
+            "action_id" : 0,
+            "action_const" : false,
+            "action_data" : [],
+            "action_entry_const" : false
+          }
+        }
+      ],
+      "action_profiles" : [],
+      "conditionals" : []
+    }
+  ],
+  "checksums" : [
+    {
+      "name" : "cksum",
+      "id" : 0,
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc_1",
+      "if_cond" : {
+        "type" : "bool",
+        "value" : true
+      }
+    },
+    {
+      "name" : "cksum_0",
+      "id" : 1,
+      "target" : ["ipv4", "hdrChecksum"],
+      "type" : "generic",
+      "calculation" : "calc_2",
+      "if_cond" : {
+        "type" : "bool",
+        "value" : true
+      }
+    }
+  ],
+  "force_arith" : [],
+  "extern_instances" : [],
+  "field_aliases" : [
+    [
+      "queueing_metadata.enq_timestamp",
+      ["standard_metadata", "enq_timestamp"]
+    ],
+    [
+      "queueing_metadata.enq_qdepth",
+      ["standard_metadata", "enq_qdepth"]
+    ],
+    [
+      "queueing_metadata.deq_timedelta",
+      ["standard_metadata", "deq_timedelta"]
+    ],
+    [
+      "queueing_metadata.deq_qdepth",
+      ["standard_metadata", "deq_qdepth"]
+    ],
+    [
+      "intrinsic_metadata.ingress_global_timestamp",
+      ["standard_metadata", "ingress_global_timestamp"]
+    ],
+    [
+      "intrinsic_metadata.lf_field_list",
+      ["standard_metadata", "lf_field_list"]
+    ],
+    [
+      "intrinsic_metadata.mcast_grp",
+      ["standard_metadata", "mcast_grp"]
+    ],
+    [
+      "intrinsic_metadata.resubmit_flag",
+      ["standard_metadata", "resubmit_flag"]
+    ],
+    [
+      "intrinsic_metadata.egress_rid",
+      ["standard_metadata", "egress_rid"]
+    ]
+  ]
+}

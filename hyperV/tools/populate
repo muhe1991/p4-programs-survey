@@ -1,0 +1,10 @@
+#! /bin/bash
+
+export TEST_ROOT='/home/netarchlab/vp4-test'
+export SWITCH_ROOT='/home/netarchlab/vp4-bmv2/targets/simple_switch'
+export SWITCH_EXE='/home/netarchlab/vp4-bmv2/targets/simple_switch/simple_switch'
+
+COMMANDS=${TEST_ROOT}/${1}/commands
+
+cd ${SWITCH_ROOT}
+./runtime_CLI <$COMMANDS

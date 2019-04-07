@@ -1,0 +1,29 @@
+#! /bin/bash
+
+
+ip link add p4p1 type veth peer name veth3
+ip link add p4p2 type veth peer name veth4
+
+ip netns add h1
+ip netns add h2
+
+ip link set veth3 netns h1
+ip link set veth4 netns h2
+
+ip netns exec h1 ifconfig lo up
+ip netns exec h2 ifconfig lo up
+
+ip netns exec h1 ifconfig veth3 hw ether 802200010001
+ip netns exec h2 ifconfig veth4 hw ether 802200010002
+
+ip netns exec h1 ifconfig veth3 10.0.0.1  up
+ip netns exec h2 ifconfig veth4 10.0.0.2  up
+
+ip netns exec h1 arp -s 10.0.0.2 80:22:00:01:00:02
+ip netns exec h2 arp -s 10.0.0.1 80:22:00:01:00:01
+
+sudo ifconfig p4p1 up
+sudo ifconfig p4p2 up
+
+
+

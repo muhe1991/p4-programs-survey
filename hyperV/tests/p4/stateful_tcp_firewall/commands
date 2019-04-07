@@ -1,0 +1,14 @@
+table_add forward_table forward 1 => 2
+table_add forward_table forward 2 => 1
+table_add state_table get_state_with_tcp_flag 0x0a000002 0x0a000003 8080 8080 => 0
+table_add state_table get_state_with_tcp_flag 0x0a000003 0x0a000002 8080 8080 => 0
+table_add state_table state_transfer_table 0 0b10 => 1 0
+table_add state_table state_transfer_table 1 0b10010 => 2 0
+table_add state_table state_transfer_table 2 0b10000 => 2 0
+table_add state_table state_transfer_table 2 0b1 => 3 0
+table_add state_table state_transfer_table 4 0b10001 => 4 0
+table_add state_table state_transfer_table 4 0b10000 => 4 0
+table_add state_table state_transfer_table 4 0b1 => 5 0
+table_add state_table state_transfer_table 5 0b10001 => 0 0
+table_add action_table alert 0 => 
+table_set_default action_table noop

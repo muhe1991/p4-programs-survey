@@ -1,0 +1,20 @@
+[+ std_header +]
+[+ this_header +]
+
+action a_drop() {
+  drop();
+}
+
+[+ dloop +]
+table t_drop_[+X+][+Y+] {
+  actions {
+    a_drop;
+  }
+}
+[+ enddloop +]
+
+[+ dloop +]
+control do_drop_[+X+][+Y+] {
+  apply(t_drop_[+X+][+Y+]);
+}
+[+ enddloop +]

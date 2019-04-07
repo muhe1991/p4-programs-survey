@@ -1,0 +1,6 @@
+setup.p4:
+- Check the need to initialize local metadata for the current packet
+  - this includes the parse width; after this is set, we resubmit so we can
+    extract the proper number of bits
+- Normalize extracted data to a standard width bitfield (e.g. 256 -> 768)
+- Set program and first table

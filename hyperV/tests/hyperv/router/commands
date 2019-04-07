@@ -1,0 +1,40 @@
+table_add table_config_at_initial action_set_initial_config 1 0 0 => 1 0 4
+table_add table_header_match_stage1 action_set_action_id 1 0 0x0800000000000000000000000000000000000000000&&&0xFFFF000000000000000000000000000000000000000 => 0 0 4 1 1 1
+table_add table_header_match_stage1 action_end  1 0 0x0&&&0x0 => 0xFF
+table_add table_get_expression_stage2 action_set_expr__header_op_const 1 5 => 88 0xFF 0 0
+table_add table_branch1_stage2 action_end 1 5 0 => 0xFF
+table_add table_branch2_stage2 action_set_action_id 1 5 0 => 0 0 4 1 1 1
+table_add table_branch3_stage2 action_end 1 5 0 => 0xFF
+
+
+table_add table_header_match_stage2 action_set_action_id 1 1 0x0a000000&&&0xFFFFFF00 => 0x1000000000 0x100000080 2 2 1 1
+table_add table_mod_meta_with_const_stage2 action_mod_meta_with_const 0x1000000000 =>   0x0a000002 0xFFFFFFFF
+table_add table_substract_stage2 action_subtract_const_from_header 0x1000000000 => 0x010000000000000000000000 0xFF0000000000000000000000
+
+table_add table_header_match_stage2 action_set_action_id 1 1 0x0a000100&&&0xFFFFFF00 => 0x2000000000 0x100000080 2 2 1 1
+table_add table_mod_meta_with_const_stage2 action_mod_meta_with_const 0x2000000000 =>   0x0a000102 0xFFFFFFFF
+table_add table_substract_stage2 action_subtract_const_from_header 0x2000000000 => 0x010000000000000000000000 0xFF0000000000000000000000
+
+
+
+table_add table_header_match_stage3 action_set_action_id 1 2 0x0a000002&&&0xFFFFFFFF => 0x10000 0x280000000 1 3 1 1
+table_add table_mod_std_meta_stage3 action_forward 0x10000 => 1
+table_add table_mod_header_with_const_stage3 action_mod_header_with_const 0x10000 => 0x082200010001000000000000000000000000000000000000000000000000000000 0xFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000
+
+
+table_add table_header_match_stage3 action_set_action_id 1 2 0x0a000102&&&0xFFFFFFFF => 0x20000 0x280000000 1 3 1 1
+table_add table_mod_std_meta_stage3 action_forward 0x20000 => 2
+table_add table_mod_header_with_const_stage3 action_mod_header_with_const 0x20000 => 0x082200010002000000000000000000000000000000000000000000000000000000 0xFFFFFFFFFFFF000000000000000000000000000000000000000000000000000000
+
+
+table_add table_std_meta_match_stage4 action_set_action_id 1 3 1&&&0xFF 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 => 1 0x0000002000000000 0 0 0xFF 1
+table_add table_std_meta_match_stage4 action_set_action_id 1 3 2&&&0xFF 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 => 2 0x0000002000000000 0 0 0xFF 1
+
+table_add table_mod_header_with_const_stage4 action_mod_header_with_const 1 => 0x082200010001000000000000000000000000000000000000000000 0xFFFFFFFFFFFF000000000000000000000000000000000000000000
+
+table_add table_mod_header_with_const_stage4 action_mod_header_with_const 2 => 0x082200010002000000000000000000000000000000000000000000 0xFFFFFFFFFFFF000000000000000000000000000000000000000000
+
+
+
+table_add table_checksum action_ipv4_checksum 1 => 0
+table_set_default dh_deparse action_dh_deparse

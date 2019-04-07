@@ -1,0 +1,30 @@
+{
+  "program": "p4src/linear_road.p4",
+  "language": "p4-14",
+  "targets": {
+    "multiswitch": {
+      "model": "bmv2",
+      "bmv2_log": true,
+      "pcap_dump": false,
+      "auto-control-plane": true,
+      "controller_module": "controller",
+      "links": [["h1", "s1"], ["h2", "s1"]],
+      "hosts": {
+        "h1": {
+            "cmd": "./recv.py -p 1234 -f h2:1235",
+            "startup_sleep": 0.1,
+            "wait": false
+        },
+        "h2": {
+            "cmd": "./test.py -p 1235 h1:1234",
+            "wait": true
+        }
+      },
+      "switches": {
+          "s1": {
+              "commands": "commands.txt"
+          }
+      }
+    }
+  }
+}

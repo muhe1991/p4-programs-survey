@@ -1,0 +1,2 @@
+switch_primitivetype.p4: Redirect execution to the control function appropriate
+                         for the next primitive in the target P4 program

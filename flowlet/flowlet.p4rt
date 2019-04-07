@@ -1,0 +1,23 @@
+]
+çœƒ
+ecmp_group
+ecmp_groupipv4.dstAddr  (¸¶€­èƒ·¶@defaultonly()@€l
+Ç¼ƒ	ecmp_nhop	ecmp_nhop$ingress_metadata.ecmp_offset (¸¶€¬‘‚·¶@defaultonly()@€€:
+ñÆƒflowletflowletƒÙ·¶@defaultonly()@€e
+„‚forwardforward"ingress_metadata.nhop_ipv4  (˜€¸¶€·¶@defaultonly()@€B
+¿ûƒnew_flowletnew_flowletÙ¼ƒ·¶@defaultonly()@€n
+ÊÁ€
+send_frame
+send_frame%standard_metadata.egress_port 	(Ø—‚¸¶€·¶@defaultonly()@€
+·¶NoActionNoAction
+¸¶€_drop_dropL
+'­èƒset_ecmp_selectset_ecmp_select	ecmp_base 
+ecmp_count 8
+¬‘‚set_nhopset_nhop	nhop_ipv4  
+port 	/
+-ƒÙlookup_flowlet_maplookup_flowlet_map'
+˜€set_dmacset_dmac
+dmac 0-
++Ù¼ƒupdate_flowlet_idupdate_flowlet_id-
+Ø—‚rewrite_macrewrite_mac
+smac 0

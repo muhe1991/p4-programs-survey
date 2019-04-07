@@ -1,0 +1,9 @@
+table_add init_meta_egress a_init_meta_egress 1 => 2
+table_add init_meta_egress a_init_meta_egress 2 => 1
+table_add check_arp arp_present 1 => 
+table_add check_opcode arp_request 1=>
+table_add handle_arp_packet arp_reply 0x0a000001 => 0x0a000001 0x082a00010001
+table_add handle_arp_packet arp_reply 0x0a000002 => 0x0a000001 0x082a00010002
+table_set_default check_arp send_packet
+table_set_default check_opcode send_packet
+table_set_default handle_arp_packet send_packet

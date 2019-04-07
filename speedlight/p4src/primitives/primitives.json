@@ -1,0 +1,233 @@
+{
+    "riUpdateSnapshotId":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    },
+    "riUpdateSnapshotIdNoRollover":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    },
+    "riUpdateSnapshotIdRollover":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "riUpdateLastSeen":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "riReadAndUpdateNotification":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "reUpdateLastSeen":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "reUpdateSnapshotId":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "reUpdateSnapshotIdNoRollover":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "reUpdateSnapshotIdRollover":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "riReadAndUpdateCounter":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "riUpdateInflight":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "reReadAndUpdateCounter":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["field", "int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+    ,
+    "reUpdateInflight":
+    {
+    "num_args" : 2,
+    "args" : ["reg", "idx"],
+    "properties" : {
+        "reg" : {
+        "type" : ["register"],
+        "access" : "write",
+        "data_width" : 32
+        },
+        "idx" : {
+        "type" : ["int", "table_entry_data"],
+        "access" : "read",
+        "data_width" : 32
+        }
+    }
+    }
+}

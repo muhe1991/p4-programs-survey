@@ -1,0 +1,18 @@
+table_add ipv4_route set_egress 10.0.0.1 => 1
+table_add ipv4_route set_egress 10.0.0.2 => 1
+table_add ipv4_route set_egress 10.0.100.1 => 1
+table_add ipv4_route set_egress 10.0.100.2 => 2
+table_add ipv4_route set_egress 10.0.100.4 => 1
+table_add ethernet_set_mac ethernet_set_mac_act 1 => aa:bb:cc:dd:ee:31 aa:bb:cc:dd:ee:45
+table_add ethernet_set_mac ethernet_set_mac_act 2 => aa:bb:cc:dd:ee:32 aa:bb:cc:dd:ee:23
+table_add gen_reply gen_reply_act 10 => 11
+table_add gen_reply gen_reply_act 12 => 13
+table_set_default get_sequence get_sequence_act
+table_set_default maintain_sequence maintain_sequence_act
+table_set_default read_value read_value_act
+table_set_default assign_value assign_value_act
+table_set_default pop_chain pop_chain_act
+table_set_default drop_packet drop_packet_act
+table_set_default get_next_hop get_next_hop_act
+table_set_default pop_chain_again pop_chain_act
+table_set_default failure_recovery nop

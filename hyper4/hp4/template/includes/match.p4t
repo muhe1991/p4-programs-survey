@@ -1,0 +1,77 @@
+[+ std_header +]
+[+ this_header +]
+
+#include "switch_stdmeta.p4"
+
+action init_program_state(action_ID, match_ID, next_table, primitive, primitive_subtype) {
+  modify_field(meta_primitive_state.action_ID, action_ID);
+  modify_field(meta_primitive_state.match_ID, match_ID);
+  modify_field(meta_primitive_state.primitive_index, 1);
+  modify_field(meta_ctrl.next_table, next_table);
+  modify_field(meta_primitive_state.primitive, primitive);
+  modify_field(meta_primitive_state.subtype, primitive_subtype);
+  modify_field(meta_ctrl.stage_state, CONTINUE);
+}
+
+action set_meta_stdmeta(stdmeta_ID) {
+  modify_field(meta_ctrl.stdmeta_ID, stdmeta_ID);
+}
+
+[+ sloop +]
+table t[+X+]_extracted_exact {
+  reads {
+    meta_ctrl.program : exact;
+    extracted.data : ternary;
+  }
+  actions {
+    init_program_state;
+  }
+}
+
+table t[+X+]_metadata_exact {
+  reads {
+    meta_ctrl.program : exact;
+    tmeta.data : ternary;
+  }
+  actions {
+    init_program_state;
+  }
+}
+
+table t[+X+]_stdmeta_exact {
+  reads {
+    meta_ctrl.program : exact;
+  }
+  actions {
+    set_meta_stdmeta;
+  }
+}
+
+table t[+X+]_extracted_valid {
+  reads {
+    meta_ctrl.program : exact;
+    extracted.validbits : ternary;
+  }
+  actions {
+    init_program_state;
+  }
+}
+[+ endsloop +]
+
+[+ sloop +]
+control match_[+X+] {
+  if(meta_ctrl.next_table == EXTRACTED_EXACT) {
+    apply(t[+X+]_extracted_exact);
+  }
+  else if(meta_ctrl.next_table == METADATA_EXACT) {
+    apply(t[+X+]_metadata_exact);
+  }
+  else if(meta_ctrl.next_table == STDMETA_EXACT) {
+    apply(t[+X+]_stdmeta_exact);
+    switch_stdmeta_[+X+]();
+  }
+  else if(meta_ctrl.next_table == EXTRACTED_VALID) {
+    apply(t[+X+]_extracted_valid);
+  }
+}
+[+ endsloop +]

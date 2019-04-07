@@ -1,0 +1,18 @@
+[+ std_header +]
+[+ this_header +]
+
+[+ sloop 100 singlespace +]
+action a_resize_pr_[+X+]() { pop(ext, 100); push(ext, [+X+]); }
+[+ endsloop +]
+
+table tegr_resize_pr {
+  reads {
+    parse_ctrl.numbytes : exact;
+  }
+  actions {
+    [+ sloop 100 ss +]
+    a_resize_pr_[+X+];
+    [+ endsloop +]
+    _no_op;
+  }
+}

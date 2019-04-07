@@ -1,0 +1,10 @@
+build/
+cmake-build-debug/
+CMakeLists.txt
+bmv2/.idea
+bmv2/cmake-build-debug/
+controller/.idea/
+controller/cmake-build-debug/
+controller/CMakeLists.txt
+controller/hyperv/controller
+controller/hyper4/controller

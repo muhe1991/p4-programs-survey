@@ -1,0 +1,4 @@
+#! /bin/bash
+
+ip netns delete h1
+ip netns delete h2

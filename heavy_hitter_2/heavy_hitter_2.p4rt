@@ -1,0 +1,17 @@
+Y
+7‹Ã€drop_heavy_hitter_tabledrop_heavy_hitter_table¸¶€·¶@defaultonly()@i
+„‚forwardforward&meta.custom_metadata.nhop_ipv4  (˜€¸¶€·¶@defaultonly()@€]
+¡×ipv4_lpmipv4_lpmhdr.ipv4.dstAddr  (¬‘‚¸¶€·¶@defaultonly()@€c
+AáÀƒset_heavy_hitter_count_tableset_heavy_hitter_count_table»·¶@defaultonly()@n
+ÊÁ€
+send_frame
+send_frame%standard_metadata.egress_port 	(Ø—‚¸¶€·¶@defaultonly()@€
+·¶NoActionNoAction
+¸¶€_drop_drop'
+˜€set_dmacset_dmac
+dmac 08
+¬‘‚set_nhopset_nhop	nhop_ipv4  
+port 	7
+5»set_heavy_hitter_countset_heavy_hitter_count-
+Ø—‚rewrite_macrewrite_mac
+smac 0

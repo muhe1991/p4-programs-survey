@@ -1,0 +1,61 @@
+[+ std_header +]
+[+ this_header +]
+
+[+ sloop +]
+table t[+X+]_stdmeta_ingress_port {
+  reads {
+    meta_ctrl.program : exact;
+    standard_metadata.ingress_port : exact;
+  }
+  actions {
+    init_program_state;
+  }
+}
+
+table t[+X+]_stdmeta_packet_length {
+  reads {
+    meta_ctrl.program : exact;
+    standard_metadata.packet_length : exact;
+  }
+  actions {
+    init_program_state;
+  }
+}
+
+table t[+X+]_stdmeta_instance_type {
+  reads {
+    meta_ctrl.program : exact;
+    standard_metadata.instance_type : exact;
+  }
+  actions {
+    init_program_state;
+  }
+}
+
+table t[+X+]_stdmeta_egress_spec {
+  reads {
+    meta_ctrl.program : exact;
+    standard_metadata.egress_spec : exact;
+  }
+  actions {
+    init_program_state;
+  }
+}
+[+ endsloop +]
+
+[+ sloop +]
+control switch_stdmeta_[+X+] {
+  if(meta_ctrl.stdmeta_ID == STDMETA_INGRESS_PORT) {
+    apply(t[+X+]_stdmeta_ingress_port);
+  }
+  else if(meta_ctrl.stdmeta_ID == STDMETA_PACKET_LENGTH) {
+    apply(t[+X+]_stdmeta_packet_length);
+  }
+  else if(meta_ctrl.stdmeta_ID == STDMETA_INSTANCE_TYPE) {
+    apply(t[+X+]_stdmeta_instance_type);
+  }
+  else if(meta_ctrl.stdmeta_ID == STDMETA_EGRESS_SPEC) {
+    apply(t[+X+]_stdmeta_egress_spec);
+  }
+}
+[+ endsloop +]

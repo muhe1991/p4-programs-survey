@@ -1,0 +1,59 @@
+# DAVID HANCOCK
+# dhancock@cs.utah.edu
+# FLUX Research Group
+# University of Utah
+#
+# SEARCH AND REPLACE
+# [COMPLETE] :=	1
+# [CONTINUE] :=	2
+# [META_CONST] :=	7
+# [STDMETA_EGRESSSPEC_CONST] :=	8
+
+# MULTICAST SUPPORT
+
+# [program ID] [sequence ID] [mc_current_egress] [sm.ingress_port] => [port] [match priority]
+# this command skips egress 2 if ingress port == 2:
+table_add t_multicast mod_and_clone [program ID] 1 3 2&&&0xFF => 1 1
+# all other values of ingress port are treated normally:
+table_add t_multicast mod_and_clone [program ID] 1 3 0&&&0 => 2 2
+# this commands skips egress 1 if ingress port == 1:
+table_add t_multicast _no_op [program ID] 1 2 1&&&0xFF => 1
+# all other values of ingress port are treated normally:
+table_add t_multicast mod_and_clone [program ID] 1 2 0&&&0 => 1 2
+table_add t_multicast _no_op [program ID] 1 1 0&&&0 => 1
+
+table_add parse_control set_next_action [program ID] 0 0 => [PROCEED]
+table_add t_set_first_table a_set_first_table [program ID] 0 => [EXTRACTED_EXACT]
+table_add csum16 _no_op [program ID] =>
+
+# Match entries for hp4t_lt_switch's dmac table
+# => [action_ID] [match_ID] [next_table] [match priority]
+table_add t1_extracted_exact init_program_state [program ID] 0x00040000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 2 1 [DONE] 1
+table_add t1_extracted_exact init_program_state [program ID] 0x00040000000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 2 2 [DONE] 1
+table_add t1_extracted_exact init_program_state [program ID] 0x00040000000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 2 3 [DONE] 1
+table_add t1_extracted_exact init_program_state [program ID] 0x00040000000300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 2 4 [DONE] 1
+table_add t1_extracted_exact init_program_state [program ID] 0xffffffffffff00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 3 5 [DONE] 1
+
+# Based on the action_ID, set the primitive type and subtype
+# [program ID] [action_ID] [primitive_index] => ...
+table_add set_primitive_metadata_11 a_set_primitive_metadata [program ID] 2 1 => [MODIFY_FIELD] [STDMETA_EGRESSSPEC_CONST]
+table_add set_primitive_metadata_11 a_set_primitive_metadata [program ID] 3 1 => [MULTICAST] 0
+
+# Set the first port to send a clone out of for a multicast operation
+table_add t_multicast_11 a_multicast [program ID] => 1 3
+
+# Guide HP4 to the next primitive based on the current one
+# [program ID] [action_ID] [primitive_index] => [action_ID] [primitive_index] [stage_state] [next table]
+table_add set_program_state_11 set_program_state [program ID] 2 1 => 2 2 [CONTINUE] [DONE]
+
+# [program ID] [action_ID] [primitive_index] => ...
+table_add set_primitive_metadata_12 a_set_primitive_metadata [program ID] 2 2 => [MODIFY_FIELD] [META_CONST]
+
+table_add set_program_state_11 set_program_state [program ID] 3 1 => 0 0 [COMPLETE] [DONE]
+table_add set_program_state_12 set_program_state [program ID] 2 2 => 0 0 [COMPLETE] [DONE]
+
+# [program ID] [subtype] [match ID] => [val]
+table_add t_mod_11 mod_stdmeta_egressspec_const [program ID] [STDMETA_EGRESSSPEC_CONST] 1 => 1
+table_add t_mod_11 mod_stdmeta_egressspec_const [program ID] [STDMETA_EGRESSSPEC_CONST] 2 => 2
+table_add t_mod_11 mod_stdmeta_egressspec_const [program ID] [STDMETA_EGRESSSPEC_CONST] 3 => 3
+table_add t_mod_11 mod_stdmeta_egressspec_const [program ID] [STDMETA_EGRESSSPEC_CONST] 4 => 3

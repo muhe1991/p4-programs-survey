@@ -1,0 +1,48 @@
+Design Discussion: Exact Matching on Target Metadata
+
+Background:
+- Target metadata is represented in two register sets:
+  -- tmeta_8_r[TMETA_8_CAPACITY]
+  -- tmeta_16_r[TMETA_16_CAPACITY]
+
+Option 1:
+- Copy all register values into one large metadata bitfield
+- Ternary matching on that bitfield
+
+Option 2:
+- Setup: set starting byte / word index + number of bytes / words
+- For number of bytes / words:
+    - Copy byte / word pointed to by index into temp metadata field
+    - Execute table matching on the temp metadata field
+    - If match, set success flag, increment index, & continue; else break
+- If success = true:
+  - set program state
+
+Option 3:
+- Setup: set starting byte / word index + number of bytes / words
+- set iteration: 0
+- For number of bytes / words:
+  - Copy byte / word pointed to by index into temp metadata field, first
+    shifting left by 8 * (number of bytes - iteration) or
+                     16 * (number of words - iteration)
+- Ternary matching on the temp metadata field
+
+Option 1 seems conceptually easy, but not that much easier than Option 2 or 3,
+and should incur 
+
+It is not clear whether Option 2 or Option 3 will be
+- easier to implement
+- faster, performance-wise
+
+Option 4:
+- Setup: set starting byte / word index + number of bytes / words
+- Switch based on number of bytes / words, and execute the table / action that
+  specifically handles that many bytes / words starting with the starting
+  byte indicated.  By "handles" I mean copies that many bytes / words into
+  temporary metadata fields.
+- Single table can handle all cases for the actual match.  Operators simply
+  supply 0 as matching values for all temporary metadata fields that were not
+  necessary.
+- If success = true:
+  - set program state
+

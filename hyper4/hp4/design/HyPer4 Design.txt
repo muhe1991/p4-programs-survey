@@ -1,0 +1,37 @@
+HyPer4 Design
+
+v0.1 Features
+- 4 primitive types:
+  -- modify_field
+     --- target metadata <- standard metadata
+     --- target metadata <- constant
+     --- standard metadata <- target metadata
+     --- standard metadata <- constant
+  -- drop
+  -- no_op
+  -- truncate
+
+v0.2 Features
+- 2 Additional matching types: ternary, lpm
+- 5 Additional primitive types:
+  -- add_header
+  -- copy_header
+  -- remove_header
+  -- push
+  -- pop
+- Python script to generate p4 code
+  -- support user-specified max number of matches
+  -- support user-specified max number of primitives to execute per match
+  -- etc.
+
+Outstanding Issues
+
+- We have a potential problem with the initialization process.  Currently, we have a check_init table that has no entries and two possible default actions: init and no_op.  During normal operation the default action is no_op, and when the operator wants to trigger reinitialization, he changes the default action to init.  The problem is keeping initialization under control: we only want to execute initialization once, but it is triggered by the arrival of a packet in the dataplane, and while the switch initializes, other packets could arrive before we have a chance to revert the default action in the control plane.
+
+How might we change this to ensure initialization happens only once?
+
+We could use two registers and form a semaphore.  Assume both registers must be true in order to carry out initialization.  During normal operation, reg A is set to true and reg B is set to false.  Check_init default action is no_op until controller changes it to set_reg_B_true.  The first action taken by the intialization action is to set reg A to false.  The last actions taken by the intialization action is to set reg B to false and then set reg A to true.  Meanwhile, all subsequent packets should be held somehow (recirculated?) while reg B is true.
+
+Double check this solution with existing semaphore implementations e.g. Peterson's Algorithm or Dekker's algorithm.
+
+

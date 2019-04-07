@@ -1,0 +1,44 @@
+[+ std_header +]
+[+ this_header +]
+
+// emask ensures change is isolated to the desired field
+action a_add2f_extracted_const_s(val, leftshift, emask) {
+  modify_field(extracted.data, (extracted.data & ~emask) | ( extracted.data + (val << leftshift) ));
+}
+
+// faster and easier, but no protection
+action a_add2f_extracted_const_u(val, leftshift) {
+  modify_field(extracted.data, extracted.data + (val << leftshift) );
+}
+
+// emask ensures change is isolated to the desired field
+action a_subff_extracted_const_s(val, leftshift, emask) {
+  modify_field(extracted.data, (extracted.data & ~emask) | ( extracted.data + (val << leftshift) ));
+}
+
+// faster and easier, but no protection
+action a_subff_extracted_const_u(val, leftshift) {
+  modify_field(extracted.data, extracted.data - (val << leftshift) );
+}
+
+[+ dloop +]
+table t_math_on_field_[+X+][+Y+] {
+  reads {
+    meta_ctrl.program : exact;
+    meta_primitive_state.subtype : exact;
+    meta_primitive_state.match_ID : exact;
+  }
+  actions {
+    a_add2f_extracted_const_s;
+    a_add2f_extracted_const_u;
+    a_subff_extracted_const_s;
+    a_subff_extracted_const_u;
+  }
+}
+[+ enddloop +]
+
+[+ dloop +]
+control do_math_on_field_[+X+][+Y+] {
+  apply(t_math_on_field_[+X+][+Y+]);
+}
+[+ enddloop +]

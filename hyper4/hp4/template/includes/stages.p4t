@@ -1,0 +1,43 @@
+[+ std_header +]
+[+ this_header +]
+
+#include "match.p4"
+#include "switch_primitivetype.p4"
+
+action update_state(action_ID, primitive, primitive_subtype) {
+  modify_field(meta_primitive_state.action_ID, action_ID);
+  modify_field(meta_primitive_state.primitive_index, 
+               meta_primitive_state.primitive_index + 1);
+  modify_field(meta_primitive_state.primitive, primitive);
+  modify_field(meta_primitive_state.subtype, primitive_subtype);
+}
+
+action finish_action(next_stage) {
+  modify_field(meta_ctrl.next_stage, next_stage);
+  modify_field(meta_ctrl.stage_state, COMPLETE);
+}
+
+[+ dloop +]
+table tstg[+X+][+Y+]_update_state {
+  reads {
+    meta_ctrl.program : exact;
+    meta_primitive_state.action_ID : exact;
+    meta_primitive_state.primitive_index : exact;
+  }
+  actions {
+    set_program_state;
+    finish_action;
+  }
+}
+[+ enddloop +]
+
+[+ sloop +]
+control stage[+X+] {
+  match_[+X+]();
+  [+ nif +]
+  if(meta_ctrl.stage_state != COMPLETE) {
+    switch_primitivetype_[+X+][+Y+]();
+    apply(tstg[+X+][+Y+]_update_state);
+  [+ endnif +]
+}
+[+ endsloop +]

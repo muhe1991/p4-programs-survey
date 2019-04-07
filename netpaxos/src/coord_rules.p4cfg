@@ -1,0 +1,85 @@
+{
+    "registers": {
+        "configs": []
+    }, 
+    "tables": {
+        "fwd_tbl": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "forward", 
+                        "data": {
+                            "port": {
+                                "value": "p0"
+                            }
+                        }
+                    }, 
+                    "name": "host2net", 
+                    "match": {
+                        "standard_metadata.ingress_port": {
+                            "value": "v0.0"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "forward", 
+                        "data": {
+                            "port": {
+                                "value": "v0.0"
+                            }
+                        }
+                    }, 
+                    "name": "net2host", 
+                    "match": {
+                        "standard_metadata.ingress_port": {
+                            "value": "p0"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "type": "_drop"
+                }, 
+                "name": "Default"
+            }
+        }, 
+        "paxos_tbl": {
+            "rules": [
+                {
+                    "action": {
+                        "type": "increase_sequence"
+                    }, 
+                    "name": "incrSeq", 
+                    "match": {
+                        "paxos.msgtype": {
+                            "value": "0"
+                        }
+                    }
+                }, 
+                {
+                    "action": {
+                        "type": "reset_paxos"
+                    }, 
+                    "name": "reset", 
+                    "match": {
+                        "paxos.msgtype": {
+                            "value": "0xff"
+                        }
+                    }
+                }
+            ], 
+            "default_rule": {
+                "action": {
+                    "type": "_no_op"
+                }, 
+                "name": "Default"
+            }
+        }
+    }, 
+    "multicast": {}, 
+    "meters": {
+        "configs": []
+    }
+}

@@ -1,0 +1,6 @@
+table_add table_config_at_initial action_set_initial_config 1 0 0 => 1 0 4
+table_add table_header_match_stage1 action_set_action_id 1 0 0x00020000000000000000&&&0xFFFF0000000000000000 => 0x200000000 0x2000000000 0 0 0xFF 1
+table_add table_mod_std_meta_stage1 action_forward 0x200000000 => 2
+table_add table_header_match_stage1 action_set_action_id 1 0 0x00010000000000000000&&&0xFFFF0000000000000000 => 0x100000000 0x2000000000 0 0 0xFF 1
+table_add table_mod_std_meta_stage1 action_forward 0x100000000 => 1
+table_set_default dh_deparse action_dh_deparse

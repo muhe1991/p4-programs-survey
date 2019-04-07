@@ -1,0 +1,10 @@
+Header,Length (B),Notes
+standard_metadata,20
+parse_ctrl,3
+ext,100,stack
+meta_ctrl,8
+meta_primitive_state,6
+extracted,110
+tmeta,32
+csum,105
+intrinsic_metadata,11

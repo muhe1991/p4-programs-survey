@@ -1,0 +1,220 @@
+action set_program(program, virt_ingress_port) {
+  modify_field(meta_ctrl.program, program);
+  modify_field(meta_ctrl.virt_ingress_port, virt_ingress_port);
+}
+
+table t_prog_select {
+  reads {
+    standard_metadata.ingress_port : exact;
+  }
+  actions {
+    set_program;
+  }
+}
+
+table t_virt_filter {
+  reads {
+    meta_ctrl.program : exact;
+    meta_ctrl.virt_egress_port : exact;
+  }
+  actions {
+    a_drop;
+    a_virt_ports_cleanup;
+  }
+}
+
+table t_recirc_cleanup {
+  actions {
+    a_recirc_cleanup;
+  }
+}
+
+table parse_control {
+  reads {
+    meta_ctrl.program : exact;
+    parse_ctrl.numbytes : exact;
+    parse_ctrl.state : exact;
+  }
+  actions {
+    set_next_action;
+    set_next_action_chg_program;
+    extract_more;
+    extract_more_chg_program;
+  }
+}
+
+t_inspect_<XX>_<XX>
+
+t_norm_<XX>_<XX>
+
+action a_set_first_table(tableID) {
+  modify_field(meta_ctrl.next_table, tableID);
+  modify_field(meta_ctrl.stage, NORM);
+  modify_field(meta_ctrl.next_stage, 1);
+}
+
+// Can't consolidate w/ parse_control because parse_control potentially changes
+//  both meta_ctrl.program AND parse_ctrl.state
+table t_set_first_table {
+  reads {
+    meta_ctrl.program : exact;
+    parse_ctrl.state : exact;
+  }
+  actions {
+    a_set_first_table;
+  }
+}
+
+action a_set_validbits(val) {
+  modify_field(extracted.validbits, val);
+}
+
+// Definite candidate for consolidation: t_set_first_table
+table t_set_validbits {
+  reads {
+    meta_ctrl.program : exact;
+    parse_ctrl.state : exact;
+  }
+  actions {
+    a_set_validbits;
+    _no_op;
+  }
+}
+
+// Why are we setting next_table here?
+action init_program_state(action_ID, match_ID, next_table) {
+  modify_field(meta_primitive_state.action_ID, action_ID);
+  modify_field(meta_primitive_state.match_ID, match_ID);
+  modify_field(meta_primitive_state.primitive_index, 1);
+  modify_field(meta_ctrl.next_table, next_table);
+}
+
+// Next table varies according to meta_ctrl.next_table, but all eventually
+//  execute the init_program_state action
+table t1_extracted_exact {
+  reads {
+    meta_ctrl.program : exact;
+    extracted.data : ternary;
+  }
+  actions {
+    init_program_state;
+  }
+}
+
+action a_set_primitive_metadata(primitive, primitive_subtype) {
+  modify_field(meta_primitive_state.primitive, primitive);
+  modify_field(meta_primitive_state.subtype, primitive_subtype);
+}
+
+// TODO:Rename action.p4; all tables are set_primitive_metadata_XX
+table set_primitive_metadata_11 {
+  reads {
+    meta_ctrl.program : exact;
+    meta_primitive_state.action_ID : exact;
+    meta_primitive_state.primitive_index : exact;
+  }
+  actions {
+    a_set_primitive_metadata;
+  }
+}
+
+// Next table varies according to meta_primitive_state.primitive
+table t_mod_11 {
+  reads {
+    meta_ctrl.program : exact;
+    meta_primitive_state.subtype : exact;
+    meta_primitive_state.match_ID : exact;
+  }
+  actions {
+    mod_meta_stdmeta_ingressport;
+    mod_meta_stdmeta_packetlength;
+    mod_meta_stdmeta_egressspec;
+    mod_meta_stdmeta_egressport;
+    mod_meta_stdmeta_egressinst;
+    mod_meta_stdmeta_insttype;
+    mod_stdmeta_egressspec_meta;
+    mod_meta_const;
+    mod_stdmeta_egressspec_const;
+    mod_extracted_const;
+    mod_stdmeta_egressspec_stdmeta_ingressport;
+    mod_extracted_extracted;
+    mod_meta_extracted;
+    mod_extracted_meta;
+  }
+}
+
+action set_program_state(action_ID, primitive_index, stage_state, next_stage) {
+  modify_field(meta_primitive_state.action_ID, action_ID);
+  modify_field(meta_primitive_state.primitive_index, primitive_index);
+  modify_field(meta_ctrl.stage_state, stage_state);
+  modify_field(meta_ctrl.next_stage, next_stage);
+}
+
+// Definite candidate for consolidation: set_primitive_metadata
+table set_program_state_11 {
+  reads {
+    meta_ctrl.program : exact;
+    meta_primitive_state.action_ID : exact;
+    meta_primitive_state.primitive_index : exact;
+  }
+  actions {
+    set_program_state;
+  }
+}
+
+// --- Ingress continued ---
+
+// --- Egress ---
+table t_multicast {
+  reads {
+    meta_ctrl.program : exact;
+    meta_ctrl.multicast_seq_id : exact;
+    meta_ctrl.multicast_current_egress : exact;
+    standard_metadata.ingress_port : ternary;
+  }
+  actions {
+    mod_and_clone;
+    _no_op;
+  }
+}
+
+// TODO: insert conditional
+table csum16 {
+  reads {
+    meta_ctrl.program : exact;
+    // TODO: extracted.validbits : ternary
+  }
+  actions {
+    a_ipv4_csum16;
+    _no_op;
+  }
+}
+
+table t_resize_pr {
+  reads {
+    parse_ctrl.numbytes : exact;
+  }
+  actions {
+    a_resize_pr_01;
+    a_resize_pr_02;
+    // ...
+    _no_op
+  }
+}
+
+table t_prep_deparse_SEB {
+  actions {
+    a_prep_deparse_SEB;
+  }
+}
+
+table t_virt_net {
+  reads {
+    meta_ctrl.program : exact;
+    meta_ctrl.virt_egress_port : exact;
+  }
+  actions {
+    _no_op;
+    a_virt_net;
+  }
+}

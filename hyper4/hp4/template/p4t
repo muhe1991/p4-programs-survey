@@ -1,0 +1,225 @@
+#!/usr/bin/python
+"""
+David Hancock
+FLUX Research Group
+University of Utah
+dhancock@cs.utah.edu
+
+Process a .p4t (e.g., drop.p4t), using command-line arguments for the number of stages and number of primitives, and produce a .p4 (e.g., drop.p4).
+
+While !EOF:
+ 1. [+ std_header +]: Insert from file std_header.p4t
+ 2. [+ this_header +]: Insert from file fname computed thus:
+     fname = ${0##*/}
+     fname = "docs/${fname%.p4t}_d"
+ 3. Insert non-marked text verbatim
+ 4. text marked w/ [+ dloop +]...[+ enddloop +]:
+    a. copy all text to an array of lines alines
+    b. for i = 1; i < $1; i++:
+         for j = 1; j < $2; j++:
+           for line in alines:
+             1. outputline = line;
+             2. if outputline includes [+X+][+Y+]:
+                  replace [+X+] with i
+                  replace [+Y+] with j
+             3. Insert outputline
+
+TODO: add forms of sloop good for parser-related constructs
+      ex.:
+      - sloop [start] [stop]
+      - sloop [start] [step] [stop]
+      add nif (nested if)
+      ex.:
+      - nif [start] [step] [stop]
+"""
+import argparse
+import re
+
+parser = argparse.ArgumentParser(description='P4 template processor')
+parser.add_argument('input', help='path for input file',
+                    type=str)
+parser.add_argument('-o', '--output', help='path for output .p4 file',
+                    type=str, action="store", required=True)
+parser.add_argument('-ns', '--numstages', help='max number of match action stages',
+                    type=int, action="store", default='3')
+parser.add_argument('-np', '--numprimitives', help='max number of primitives per match action stage', type=int, action="store", default='3')
+
+args = parser.parse_args()
+
+class P4tParser:
+  def __init__(self, lines):
+    self.lines = lines
+    self.comment = False
+    self.out = ""
+    self.nextline = 0
+    self.passes = 0
+
+  def handlecomment(self, line):
+    if "[+" in line:
+      directive = line.split("+")[1].strip().upper()
+      if ( directive != "STD_HEADER" and
+           directive != "THIS_HEADER" and
+           self.comment == True):
+        self.out += "*/\n"
+        self.comment = False
+      elif ( (directive == "STD_HEADER" or
+              directive == "THIS_HEADER") and
+              self.comment == False):
+        self.out += "/*\n"
+        self.comment = True
+    elif self.comment == True:
+      self.out += "*/\n"
+      self.comment = False
+
+  def done(self):
+    if self.passes == 0:
+      return False
+    if "[+" in self.out:
+      return False
+    return True
+
+  def insert_std_header(self):
+    with open('data/stdheader_d', 'r') as fstdh:
+      self.out += fstdh.read()
+
+  def insert_this_header(self):
+    fname = 'data/' + args.input.split(".")[0] + '_d'
+    with open(fname, 'r') as fthis:
+      self.out += fthis.read()
+
+  def handle_sloop(self, startmarker):
+    body = []
+    x = args.numstages
+    conditionalbreak = "\n"
+    directive_a = startmarker.split("+")[1].strip().upper().split()
+    if len(directive_a) > 1:
+      x = int(directive_a[1])
+      if len(directive_a) > 2:
+        if directive_a[2] == "SS" or directive_a[2] == "SINGLESPACE":
+          conditionalbreak = ""
+    while self.nextline < len(self.lines):
+      line = self.lines[self.nextline]
+      self.nextline += 1
+      if line.strip().startswith("[+"):
+        directive = line.split("+")[1].strip().upper()
+        if directive == "ENDSLOOP":
+          break
+        elif self.nextline == len(self.lines):
+          print("Error: missing ENDSLOOP directive")
+          exit()
+      body.append(line)
+    
+    linebreak = ""
+    for i in range(1, x + 1):
+      self.out += linebreak
+      linebreak = conditionalbreak
+      for line in body:
+        line = line.replace("[+X+]", str(i))
+        line = line.replace("[+ X +]", str(i))
+        self.out += line
+
+  def handle_dloop(self, startmarker):
+    body = []
+    x = args.numstages
+    y = args.numprimitives
+    directive_a = startmarker.split("+")[1].strip().upper().split()
+    if len(directive_a) > 1:
+      x = int(directive_a[1])
+      if len(directive_a) > 2:
+        y = int(directive_a[2])
+    while self.nextline < len(self.lines):
+      line = self.lines[self.nextline]
+      self.nextline += 1
+      if line.strip().startswith("[+"):
+        directive = line.split("+")[1].strip().upper()
+        if directive == "ENDDLOOP":
+          break
+        elif self.nextline == len(self.lines):
+          print("Error: missing ENDDLOOP directive")
+          exit()
+      body.append(line)
+    
+    linebreaks = ""
+    for i in range(1, x + 1):
+      self.out += linebreaks
+      linebreaks = "\n"
+      linebreakp = ""
+      for j in range(1, y + 1):
+        self.out += linebreakp
+        linebreakp = "\n"
+        for line in body:
+          line = line.replace("[+X+]", str(i))
+          line = line.replace("[+ X +]", str(i))
+          line = line.replace("[+Y+]", str(j))
+          line = line.replace("[+ Y +]", str(j))
+          self.out += line
+
+  def handle_nif(self, startmarker):
+    body = []
+    y = args.numprimitives
+    directive_a = startmarker.split("+")[1].strip().upper().split()
+    if len(directive_a) > 1:
+      y = int(directive_a[1])
+    while self.nextline < len(self.lines):
+      line = self.lines[self.nextline]
+      self.nextline += 1
+      if line.strip().startswith("[+"):
+        directive = line.split("+")[1].strip().upper()
+        if directive == "ENDNIF":
+          break
+        elif self.nextline == len(self.lines):
+          print("Error: missing ENDNIF directive")
+          exit()
+      body.append(line)
+    
+    indent = ""
+    for j in range(1, y + 1):
+      for line in body:
+        line = line.replace("[+Y+]", str(j))
+        line = line.replace("[+ Y +]", str(j))
+        self.out += indent + line
+      indent += "  "
+    for j in range(1, y + 1):
+      self.out += indent + "}\n"
+      indent = indent[:-2]
+
+  def process(self):
+    while self.done() == False:
+      self.out = ""
+      self.nextline = 0
+      self.passes += 1
+      while self.nextline < len(self.lines):
+        line = self.lines[self.nextline]
+        self.nextline += 1
+        self.handlecomment(line)
+        if line.strip().startswith("[+"):
+          directive = line.split("+")[1].strip().upper()
+          if directive == "STD_HEADER":
+            self.insert_std_header()
+          elif directive == "THIS_HEADER":
+            self.insert_this_header()
+          elif "SLOOP" in directive:
+            self.handle_sloop(line)
+          elif directive == "DLOOP":
+            self.handle_dloop(line)
+          elif directive == "NIF":
+            self.handle_nif(line)
+        else:
+          self.out += line
+      self.lines = [e + '\n' for e in self.out.split('\n')]
+    return self.out
+
+def main():
+
+  with open(args.input, 'r') as fin:
+    lines = fin.readlines()
+
+  parser = P4tParser(lines)
+
+  out = parser.process()
+
+  with open(args.output, 'w') as fout:
+    fout.write(out)
+
+if __name__ == '__main__':
+  main()

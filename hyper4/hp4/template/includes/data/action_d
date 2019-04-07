@@ -1,0 +1,3 @@
+action.p4: Prepare the metadata fields that indicate the actual primitive to
+           execute.  These fields are used by switch_primitivetype.p4 and the
+           components that implement the primitives (e.g. modify_field.p4).

@@ -1,0 +1,9 @@
+ANALYSIS OF HyPer4 COMPLEXITY
+
+In the current design, HyPer4 requires
+
+  4 + a(9 + 6b)
+
+tables, where a = the number of matching stages supportable, and b = the number of primitives supportable per stage.
+
+Thus, 2 stages with 3 primitives per stage results in 58 tables.  This takes approx 1 minute to compile; if we go to 3 stages with 3 primitives per stage, and 85 tables, compilation takes 25 minutes.  I believe this is due to p4c-bm doing table dependency checks.  In any case, compilation time appears exponential in terms of the number of tables.

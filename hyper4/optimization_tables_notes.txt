@@ -1,0 +1,65 @@
+1. Consolidate t_set_first_table and t_set_validbits
+2. Consolidate set_primitive_metadata and set_program_state
+3. Put conditional over csum16
+4. Put conditional over t_resize_pr
+
+Savings: (3 + 1 * avg number of primitives) table lookups
+
+We should redo flow chart and come up with good name for state transition
+that will now represent set_primitive_metadata and set_program_state:
+
+Current:
+
+1. Setup
+   a. t_prog_select
+   b. t_virt_filter
+   c. t_recirc_cleanup
+   d. parse_control
+   e. t_inspect_<XX>_<XX>
+   f. t_norm_<XX>_<XX>
+      (1) a_norm_<XX>_<XX>
+   g. t_set_first_table
+   h. t_set_validbits
+
+2. Stage X (where X = 1 ... max number of stages)
+   a. match: t1_<data type>_<match type>
+   b. while meta_ctrl.stage_state != COMPLETE:
+        1. set_primitive_metadata_XX
+        2. [primitive-specific]
+        3. set_program_state_XX
+           (a) a_set_program_state
+
+3. Egress
+   a. t_multicast
+   b. csum16
+   c. t_resize_pr
+   d. t_prep_deparse_SEB
+   e. t_prep_deparse_XX_XX (number of these applied depends on parse_ctrl.numbytes)
+   f. t_virt_net
+
+Proposed:
+
+1. Setup
+   a. tset_context
+   b. tset_virtnet
+   c. tset_recirc
+   d. tset_control
+   e. tset_inspect_<XX>_<XX>
+   f. tset_pr_<XX>_<XX>
+      (1) a_pr_import_<XX>_<XX>
+   g. tset_pipeline
+
+2. Stage X (where X = 1 ... max number of stages)
+   a. match: tstgX_<data type>_<match type>
+   b. while meta_ctrl.stage_state != COMPLETE:
+        1. [primitive-specific]
+        2. tstgXY_update_state
+           (a) update_state
+
+3. Egress
+   a. tegr_multicast
+   b. tegr_csum16
+   c. tegr_resize_pr
+   d. tegr_pr_SEB
+   e. tegr_pr_<XX>_<XX> (number of these applied depends on parse_ctrl.numbytes)
+   f. tegr_virtnet

@@ -1,0 +1,228 @@
+# SEARCH AND REPLACE
+# [78x00s] := 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+# [72x00s] := 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+# [62x00s] := 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+## COMMANDS
+
+mirroring_add 1 1
+mirroring_add 2 2
+mirroring_add 3 3
+
+### setup.p4
+
+# ports 1 and 2 handled by program 1:
+# t_prog_select set_program [ingress_port] => [program ID] [virt_ingress_port]
+table_add t_prog_select set_program 1 => [program ID] 0
+table_add t_prog_select set_program 2 => [program ID] 0
+
+# if first time through, set next_action = INSPECT_SEB
+# parse_control set_next_action [program ID] [numbytes] [state] => [next_action]
+table_add parse_control set_next_action [program ID] 0 0 => 1 #INSPECT_SEB
+table_add parse_control set_next_action [program ID] 42 1 => 0 #PROCEED
+
+# t_inspect_SEB extract_more [program ID] [ext[0].data&&&mask] ... [ext[19].data&&&mask] => [numbytes] [state] [match priority]
+table_add t_inspect_SEB extract_more [program ID] 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0x08&&&0xFF 0x06&&&0xFF 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 => 42 1 1
+table_set_default t_inspect_SEB set_next_action 0 #PROCEED
+table_set_default t_norm_SEB a_norm_SEB
+table_set_default t_norm_20_39 a_norm_20_39
+table_set_default t_norm_40_59 a_norm_40_59
+
+# t_set_first_table a_set_first_table [program ID] [state] => [tableID]
+table_add t_set_first_table a_set_first_table [program ID] 1 => 3 #STDMETA_EXACT
+table_add t_set_first_table a_set_first_table [program ID] 0 => 3 #STDMETA_EXACT
+
+# t_set_validbits a_set_validbits [program ID] [state] => [val]
+table_add t_set_validbits a_set_validbits [program ID] 1 => 0xC0000000000000000000 # first two bits turned on, representing ethernet and arp headers
+table_add t_set_validbits a_set_validbits [program ID] 0 => 0x80000000000000000000 # only first bit turned on, representing the ethernet header
+
+### table init_meta_egress
+
+## stages.p4: stage1()
+
+## match.p4
+# field to examine is ingress_port
+# t1_stdmeta_exact set_meta_stdmeta [program ID] => [stdmeta_ID]
+table_add t1_stdmeta_exact set_meta_stdmeta [program ID] => 1 # STDMETA_INGRESS_PORT
+
+## switch_stdmeta.p4
+# set next_table to EXTRACTED_VALID
+# t1_stdmeta_ingress_port init_program_state [program ID] [ingress_port] => [action_ID] [match_ID] [next_table]
+table_add t1_stdmeta_ingress_port init_program_state [program ID] 1 => 1 1 4 # EXTRACTED_VALID
+table_add t1_stdmeta_ingress_port init_program_state [program ID] 2 => 1 2 4 # EXTRACTED_VALID
+
+############# action a_init_meta_egress: modify_field(meta.egress, port)
+
+## stages.p4: stage1()
+
+## action.p4
+# primitive type: modify_field
+# primitive subtype: meta_const (dest = meta, src = const)
+# set_primitive_metadata_11 [program ID] [action_ID] [primitive_index] => [primitive type] [primitive subtype] 
+table_add set_primitive_metadata_11 a_set_primitive_metadata [program ID] 1 1 => 0 8 # MODIFY_FIELD, meta_const
+
+## switch_primitivetype.p4
+
+## modify_field.p4
+# t_mod_11 mod_meta_const [program ID] [primitive subtype] [match ID] => [val], [leftshift], [tmeta_mask]
+table_add t_mod_11 mod_meta_const [program ID] 8 1 => 2 32 0xFF00000000
+table_add t_mod_11 mod_meta_const [program ID] 8 2 => 1 32 0xFF00000000
+
+### end primitive modify_field(meta.egress, port)
+
+## stages.p4: stage1()
+
+# mark action as complete
+# set_program_state_11 set_program_state [program ID] [action ID] [primitive index] => [action ID] [primitive index] [stage state] [next stage]
+table_add set_program_state_11 set_program_state [program ID] 1 1 => 0 0 1 2 # stage complete, continue to stage 2
+
+############# end action a_init_meta_egress
+
+### table check_arp
+
+## stages.p4: stage2(): match_2();
+
+## match.p4: match_2()
+# t2_extracted_valid init_program_state [program ID] [validbits&&&mask] => [action_ID] [match ID] [next table] [tern match priority]
+table_add t2_extracted_valid init_program_state [program ID] 0xC0000000000000000000&&&0xC0000000000000000000 => 2 1 1 1 # arp_present, ..., EXTRACTED_EXACT
+table_add t2_extracted_valid init_program_state [program ID] 0x80000000000000000000&&&0xC0000000000000000000 => 5 2 0 1 # send_packet, ..., DONE
+
+############# action arp_present: [no_op]
+############# action send_packet: modify_field(standard_metadata.egress_spec, meta.egress);
+
+## stages.p4: stage2(): apply(set_primitive_metadata_21);
+
+## action.p4
+# set_primitive_metadata_21 a_set_primitive_metadata [program ID] [action ID] [primitive index] => [primitive type], [primitive subtype]
+table_add set_primitive_metadata_21 a_set_primitive_metadata [program ID] 2 1 => 7 0 # no_op
+table_add set_primitive_metadata_21 a_set_primitive_metadata [program ID] 5 1 => 0 7 # modify_field, stdmeta_egressspec_meta
+
+## switch_primitivetype.p4
+
+## modify_field.p4
+# t_mod_21 mod_stdmeta_egressspec_meta [program ID] [primitive subtype] [match ID] => [rightshift] [tmask]
+table_add t_mod_21 mod_stdmeta_egressspec_meta [program ID] 7 2 => 32 0xFF
+
+## stages.p4: stage2()
+# set_program_state_21 set_program_state [program ID] [action ID] [primitive index] => [action ID] [primitive index] [stage state] [next stage]
+table_add set_program_state_21 set_program_state [program ID] 2 1 => 0 0 1 3 # stage complete, continue to stage 3
+table_add set_program_state_21 set_program_state [program ID] 5 1 => 0 0 1 0 # stage complete, pipeline complete
+
+############# end action arp_present
+############# end action send_packet
+
+### table check_opcode
+
+## stages.p4: stage3(): match_3();
+
+## match.p4: match_3()
+# t3_extracted_exact init_program_state [program ID] [extracted.data&&&mask] => [action ID] [match ID] [next table] [match priority]
+table_add t3_extracted_exact init_program_state [program ID] 0x0001000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 3 1 1 1 #arp_request, ..., EXTRACTED_EXACT, priority 1
+table_add t3_extracted_exact init_program_state [program ID] 0x00&&&0x00 => 5 2 0 2 # send_packet, ..., DONE, priority 2
+
+############# action arp_request: [no_op]
+############# action send_packet: modify_field(standard_metadata.egress_spec, meta.egress);
+
+## stages.p4: stage3(): apply(set_primitive_metadata_31);
+
+## action.p4
+# set_primitive_metadata_31 a_set_primitive_metadata [program ID] [action ID] [primitive index] => [primitive type], [primitive subtype]
+table_add set_primitive_metadata_31 a_set_primitive_metadata [program ID] 3 1 => 7 0 # no_op
+table_add set_primitive_metadata_31 a_set_primitive_metadata [program ID] 5 1 => 0 7 # modify_field, stdmeta_egressspec_meta
+
+## switch_primitivetype.p4
+
+## modify_field.p4
+# t_mod_21 mod_stdmeta_egressspec_meta [program ID] [primitive subtype] [match ID] => [rightshift] [tmask]
+table_add t_mod_31 mod_stdmeta_egressspec_meta [program ID] 7 2 => 32 0xFF
+
+## stages.p4: stage3()
+# set_program_state_31 set_program_state [program ID] [action ID] [primitive index] => [action ID] [primitive index] [stage state] [next stage]
+table_add set_program_state_31 set_program_state [program ID] 3 1 => 0 0 1 4 # stage complete, continue to stage 4
+table_add set_program_state_31 set_program_state [program ID] 5 1 => 0 0 1 0 # stage complete, pipeline complete
+
+############# end action arp_request
+############# end action send_packet
+
+## table handle_arp_request
+
+## stages.p4: stage4() match_4();
+
+## match.p4: match_4()
+# t4_extracted_exact init_program_state [program ID] [extracted.data&&&mask] => [action ID] [match ID] [next table] [match priority]
+table_add t4_extracted_exact init_program_state [program ID] 0x0a00000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 4 1 0 1 # arp_reply, ..., DONE, priority 1
+table_add t4_extracted_exact init_program_state [program ID] 0x0a00000100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => 4 2 0 1 # arp_reply, ..., DONE, priority 1
+table_add t4_extracted_exact init_program_state [program ID] 0x00&&&0x00 => 5 3 0 2 # send_packet, ..., DONE, priority 2
+
+############# action arp_reply: modify_field(standard_metadata.egress_spec, standard_metadata.ingress_port)
+############# action send_packet: modify_field(standard_metadata.egress_spec, meta.egress)
+
+## action.p4
+# set_primitive_metadata_41 a_set_primitive_metadata [program ID] [action ID] [primitive index] => modify_field, [primitive subtype]
+table_add set_primitive_metadata_41 a_set_primitive_metadata [program ID] 4 1 => 0 11 # stdmeta_egressspec_stdmeta_ingressport
+table_add set_primitive_metadata_41 a_set_primitive_metadata [program ID] 5 1 => 0 7  # stdmeta_egressspec_meta
+table_add set_primitive_metadata_42 a_set_primitive_metadata [program ID] 4 2 => 0 10 # extracted_const
+table_add set_primitive_metadata_43 a_set_primitive_metadata [program ID] 4 3 => 0 12
+table_add set_primitive_metadata_44 a_set_primitive_metadata [program ID] 4 4 => 0 10
+table_add set_primitive_metadata_45 a_set_primitive_metadata [program ID] 4 5 => 0 13
+table_add set_primitive_metadata_46 a_set_primitive_metadata [program ID] 4 6 => 0 12
+table_add set_primitive_metadata_47 a_set_primitive_metadata [program ID] 4 7 => 0 14
+table_add set_primitive_metadata_48 a_set_primitive_metadata [program ID] 4 8 => 0 12
+table_add set_primitive_metadata_49 a_set_primitive_metadata [program ID] 4 9 => 0 10
+
+## stages.p4: stage4()
+# set_program_state_4X set_program_state [program ID] [action ID] [primitive index] => [action ID] [primitive index] [stage state]
+table_add set_program_state_41 set_program_state [program ID] 4 1 => 4 2 2 0 # continue to second primitive in arp_reply
+table_add set_program_state_41 set_program_state [program ID] 5 1 => 0 0 1 0 # stage complete, pipeline complete
+table_add set_program_state_42 set_program_state [program ID] 4 2 => 4 3 2 0
+table_add set_program_state_43 set_program_state [program ID] 4 3 => 4 4 2 0
+table_add set_program_state_44 set_program_state [program ID] 4 4 => 4 5 2 0
+table_add set_program_state_45 set_program_state [program ID] 4 5 => 4 6 2 0
+table_add set_program_state_46 set_program_state [program ID] 4 6 => 4 7 2 0
+table_add set_program_state_47 set_program_state [program ID] 4 7 => 4 8 2 0
+table_add set_program_state_48 set_program_state [program ID] 4 8 => 4 9 2 0
+table_add set_program_state_49 set_program_state [program ID] 4 9 => 0 0 1 0
+
+## modify_field.p4
+# t_mod_4X mod_<dest>_<src> [program ID] [primitive subtype] [match ID] =>
+# 58 B of 0's: 00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_41 mod_stdmeta_egressspec_stdmeta_ingressport [program ID] 11 1 =>
+table_add t_mod_41 mod_stdmeta_egressspec_stdmeta_ingressport [program ID] 11 2 =>
+#                                                    => [rightshift] [tmask]
+table_add t_mod_41 mod_stdmeta_egressspec_meta [program ID] 7 3 => 32 0xFF
+table_add t_mod_42 mod_extracted_const [program ID] 10 1 => 2 624 0xFFFF[78x00s]
+table_add t_mod_42 mod_extracted_const [program ID] 10 2 => 2 624 0xFFFF[78x00s]
+# modify_field(arp.target_MAC, arp.sender_MAC);
+table_add t_mod_43 mod_extracted_extracted [program ID] 12 1 => 0 80 0xFFFFFFFFFFFF[62x00s]
+table_add t_mod_43 mod_extracted_extracted [program ID] 12 2 => 0 80 0xFFFFFFFFFFFF[62x00s]
+# modify_field(arp.sender_MAC, MAC);
+table_add t_mod_44 mod_extracted_const [program ID] 10 1 => 0x000400000001 576 0xFFFFFFFFFFFF[72x00s]
+table_add t_mod_44 mod_extracted_const [program ID] 10 2 => 0x000400000000 576 0xFFFFFFFFFFFF[72x00s]
+# modify_field(meta.temp, arp.sender_IP);
+table_add t_mod_45 mod_meta_extracted [program ID] 13 1 => 0 0xFFFFFFFF 544 0xFFFFFFFF
+table_add t_mod_45 mod_meta_extracted [program ID] 13 2 => 0 0xFFFFFFFF 544 0xFFFFFFFF
+# modify_field(arp.sender_IP, arp.target_IP);
+table_add t_mod_46 mod_extracted_extracted [program ID] 12 1 => 80 0 0x[28x00s]FFFFFFFF[68x00s]
+table_add t_mod_46 mod_extracted_extracted [program ID] 12 2 => 80 0 0x[28x00s]FFFFFFFF[68x00s]
+# modify_field(arp.target_IP, meta.temp);
+table_add t_mod_47 mod_extracted_meta [program ID] 14 1 => 0xFFFFFFFF[58x00s] 0 0xFFFFFFFF 464
+table_add t_mod_47 mod_extracted_meta [program ID] 14 2 => 0xFFFFFFFF[58x00s] 0 0xFFFFFFFF 464
+# modify_field(ethernet.dest, ethernet.src);
+table_add t_mod_48 mod_extracted_extracted [program ID] 12 1 => 48 0 0xFFFFFFFFFFFF[94x00s]
+table_add t_mod_48 mod_extracted_extracted [program ID] 12 2 => 48 0 0xFFFFFFFFFFFF[94x00s]
+# modify_field(ethernet.src, MAC);
+table_add t_mod_49 mod_extracted_const [program ID] 10 1 => 0x000400000001 704 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_49 mod_extracted_const [program ID] 10 2 => 0x000400000000 704 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+# egress
+table_add t_multicast _no_op [program ID] 0 0 0&&&0 =>
+table_add csum16 _no_op [program ID] =>
+table_add t_resize_pr a_resize_pr_42 42 =>
+table_add t_resize_pr _no_op 0 =>
+table_set_default t_prep_deparse_SEB a_prep_deparse_SEB
+table_set_default t_prep_deparse_20_39 a_prep_deparse_20_39
+table_set_default t_prep_deparse_40_59 a_prep_deparse_40_59
+table_add t_link _no_op 1 1 =>
+table_add t_link _no_op 1 2 =>
+table_add t_link _no_op 1 3 =>
+table_add t_virt_net _no_op 1 0 =>

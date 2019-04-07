@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<configuration>
+    <projectDir>/home/user/zhuolong/p4/netchain</projectDir>
+    <bmv2>/home/user/zhuolong/p4/bmv2</bmv2>
+    <p4cBmv2>/home/user/zhuolong/p4/p4c-bmv2</p4cBmv2>
+    <topology>
+        <topologyFileName>controller/config/topo.txt</topologyFileName>
+        <vringFileName>controller/config/vring.txt</vringFileName>
+    </topology>
+    <numVirtualNode>1</numVirtualNode>
+    <numReplica>3</numReplica>
+    <numKeyValue>120</numKeyValue>
+    <sizeVirtualGroup>20</sizeVirtualGroup>
+    <thriftBasePort>22222</thriftBasePort>
+    <switchJson>controller/config/switch.json</switchJson>
+    <p4src>p4src/netchain.p4</p4src>
+    <runtimeCLI>targets/simple_switch/sswitch_CLI</runtimeCLI>
+    <registerSize>10</registerSize>
+</configuration>

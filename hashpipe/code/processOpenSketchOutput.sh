@@ -1,0 +1,15 @@
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput3.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 30000 > Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput6.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 60000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput9.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 90000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput12.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 120000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput15.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 150000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput18.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 180000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput21.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 210000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput24.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 240000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput27.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 270000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput30.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 300000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput33.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 330000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput36.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 360000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput39.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 390000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput42.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 420000 >> Caida1MOpenSketchK300Summary.csv
+java OpenSketchVerifier ../opensketch/simulation/openSketchOutput45.txt ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv 450000 >> Caida1MOpenSketchK300Summary.csv

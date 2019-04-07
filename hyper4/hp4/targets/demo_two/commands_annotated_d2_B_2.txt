@@ -1,0 +1,53 @@
+# SEARCH AND REPLACE
+# [_drop()] := 1
+# [set_nhop()] := 2
+# [set_dmac()] := 3
+# [rewrite_mac()] := 4
+
+# [program ID] [numbytes] [parse_ctrl.state] => [next action]
+table_add parse_control set_next_action [program ID] 0 0 => [INSPECT_SEB]
+table_add t_inspect_SEB extract_more [program ID] 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0x08&&&0xFF 0x00&&&0xFF 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 0&&&0 => 34 1 1
+table_add parse_control set_next_action [program ID] 34 1 => [PROCEED]
+table_add t_set_first_table a_set_first_table [program ID] 1 => [EXTRACTED_EXACT]
+table_add csum16 a_ipv4_csum16 [program ID] => 528 16
+# [program ID] [sequence ID] [mc_current_egress] [sm.ingress_port] => [match priority]
+table_add t_multicast _no_op [program ID] 0 0 0&&&0 => 1
+
+table_add t1_extracted_exact init_program_state [program ID] 0x0A000103000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => [set_nhop()] 1 [METADATA_EXACT] 1
+table_add t1_extracted_exact init_program_state [program ID] 0x0A000204000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000&&&0xFFFFFFFF000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 => [set_nhop()] 2 [METADATA_EXACT] 1
+
+table_add set_primitive_metadata_11 a_set_primitive_metadata [program ID] [set_nhop()] 1 => [MODIFY_FIELD] 8
+
+# modify_field(routing_metadata.nhop_ipv4, nhop_ipv4);
+# [program ID] [mod_subtype] [match ID] => [val] [leftshift] [tmeta_mask]
+table_add t_mod_11 mod_meta_const [program ID] 8 1 => 0x0A000103 0 0xFFFFFFFF
+table_add t_mod_11 mod_meta_const [program ID] 8 2 => 0x0A000204 0 0xFFFFFFFF
+
+# [program ID] [action ID] [primitive index] => [action ID] [primitive index] [stage state] [next stage]
+table_add set_program_state_11 set_program_state [program ID] [set_nhop()] 1 => [set_nhop()] 2 [CONTINUE] 2
+table_add set_primitive_metadata_12 a_set_primitive_metadata [program ID] [set_nhop()] 2 => [MODIFY_FIELD] 9
+
+# modify_field(standard_metadata.egress_spec, port);
+table_add t_mod_12 mod_stdmeta_egressspec_const [program ID] 9 1 => 3
+table_add t_mod_12 mod_stdmeta_egressspec_const [program ID] 9 2 => 4
+
+table_add set_program_state_12 set_program_state [program ID] [set_nhop()] 2 => [set_nhop()] 3 [CONTINUE] 2
+table_add set_primitive_metadata_13 a_set_primitive_metadata [program ID] [set_nhop()] 3 => [MATH_ON_FIELD] 0
+# add_to_field(ipv4.ttl, -1);
+# [program ID] [subtype] [match ID]
+table_add t_math_on_field_13 a_subff_extracted_const_u [program ID] 0 1 => 1 616
+table_add t_math_on_field_13 a_subff_extracted_const_u [program ID] 0 2 => 1 616
+table_add set_program_state_13 set_program_state [program ID] [set_nhop()] 3 => 0 0 [COMPLETE] 2
+table_add t2_metadata_exact init_program_state [program ID] 0x0A000103&&&0xFFFFFFFF => [set_dmac()] 1 [STDMETA_EXACT] 1
+table_add t2_metadata_exact init_program_state [program ID] 0x0A000204&&&0xFFFFFFFF => [set_dmac()] 2 [STDMETA_EXACT] 1
+table_add set_primitive_metadata_21 a_set_primitive_metadata [program ID] [set_dmac()] 1 => [MODIFY_FIELD] 10
+table_add t_mod_21 mod_extracted_const [program ID] 10 1 => 0x000400000002 752 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_21 mod_extracted_const [program ID] 10 2 => 0x000400000003 752 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add set_program_state_21 set_program_state [program ID] [set_dmac()] 1 => 0 0 [COMPLETE] 3
+table_add t3_stdmeta_exact set_meta_stdmeta [program ID] => [STDMETA_EGRESS_SPEC]
+table_add t3_stdmeta_egress_spec init_program_state [program ID] 3 => [rewrite_mac()] 1 0
+table_add t3_stdmeta_egress_spec init_program_state [program ID] 4 => [rewrite_mac()] 2 0
+table_add set_primitive_metadata_31 a_set_primitive_metadata [program ID] [rewrite_mac()] 1 => [MODIFY_FIELD] 10
+table_add t_mod_31 mod_extracted_const [program ID] 10 1 => 0x00aabb000001 704 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add t_mod_31 mod_extracted_const [program ID] 10 2 => 0x00aabb000002 704 0xFFFFFFFFFFFF00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+table_add set_program_state_31 set_program_state [program ID] [rewrite_mac()] 1 => 0 0 [COMPLETE] 0

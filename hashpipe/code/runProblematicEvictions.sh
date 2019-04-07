@@ -1,0 +1,2 @@
+java TopKIdentifier ../Analysis/Caida/caidaSplit1.csv ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv runTrial Basic 2> ../Analysis/Caida/Caida1MTop300BaselineMinPlus1ProbEvictions.csv
+java TopKIdentifier ../Analysis/Caida/caidaSplit1.csv ../Analysis/Caida/caidaSplit1SizeBySrcIp.csv runTrial Single 2> ../Analysis/Caida/Caida1MTop300SingleMinPlus1ProbEvictions.csv

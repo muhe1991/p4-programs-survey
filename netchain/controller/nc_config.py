@@ -1,0 +1,15 @@
+NC_READ_REQUEST       = 10
+NC_READ_REPLY         = 11
+NC_WRITE_REQUEST      = 12
+NC_WRITE_REPLY        = 13
+NC_PORT               = 8888
+REPLY_PORT            = 8889
+HEAD_NODE             = 100
+REPLICA_NODE          = 101
+TAIL_NODE             = 102
+TENSECONDS            = 10
+IP_PREFIX             = "10.0.100."
+BACKUP_SW_ID          = 3
+FAIL_SW_ID            = 1
+ENTRY                 = {1: [(2018+i) for i in range(200)]}
+THRIFT_PORT_OF_SWITCH = [22222, 22223, 22224, 22225]
